@@ -139,5 +139,5 @@ if machine_code in hash_values_list:
         except Exception as e:
             print("error:  ", e)
             continue
-    else:
-        print("@Enshteyn40 ga murojat qiling")    
+else:
+    print("@Enshteyn40 ga murojat qiling")    
