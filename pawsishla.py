@@ -201,44 +201,7 @@ if machine_code in hash_values_list:
                             print("Follow x cults bonusi olinmadi yoki oldin olingan")
                     
                     
-                        xpayload = {
-                            "questId": "671b8eae22d15820f13dc618"
-                        }
-                        import time
-                        response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=xpayload, timeout=20)
-                        response_data = response.json()
-                        if response_data.get("success") and response_data.get("data"):
-                            print("X zadanyasi bajarildi")
-                        else:
-                            print("X Zadanya bajarilmadi")
-                        time.sleep(3)
-                        response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=xpayload, timeout=10)
-                        response_data = response.json()
-                        if response_data.get("success") and response_data.get("data"):
-                            print("X zadanyasi bonusi olindi")
-                        else:
-                            print("X zadanyasi bonus olinmadi yoki oldin olingan")
-                        time.sleep(3)
-                        #tweet zadanya bajarish
-                        
-                        rappayload = {
-                            "questId": "67231a53784e88ab71844101"
-                        }
-                        import time
-                        response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=rappayload, timeout=20)
-                        response_data = response.json()
-                        if response_data.get("success") and response_data.get("data"):
-                            print("X tweet zadanyasi bajarildi")
-                        else:
-                            print("X tweet Zadanya bajarilmadi")
-                        time.sleep(3)
-                        response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=rappayload, timeout=10)
-                        response_data = response.json()
-                        if response_data.get("success") and response_data.get("data"):
-                            print("X tweet zadanyasi bonusi olindi")
-                        else:
-                            print("X tweet Bonus olinmadi yoki oldin olingan")
-                        #250lik bonus
+                        #one falls one rise bonus
                         rlayload = {
                             "questId": "672a933a7470fdfea331be92"
                         }
@@ -305,7 +268,6 @@ if machine_code in hash_values_list:
                             print("Stiker bonusini olinmadi yoki oldin olingan")
                         #Blumzadanya olish
                         
-                        #ismga stiker qo'yish
                         
                         time.sleep(2)
                         
