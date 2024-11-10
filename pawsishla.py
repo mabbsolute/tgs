@@ -42,6 +42,8 @@ if machine_code in hash_values_list:
     from urllib.parse import unquote
     import asyncio
     from telethon.tl.types import InputBotAppShortName
+    
+    print("OXIRGI KOD YANGILANGAN VAQT: 10.11.2024 01:03 PM")
 
     phonecsv = "phone"
     with open(f'{phonecsv}.csv', 'r') as f:
