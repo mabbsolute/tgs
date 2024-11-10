@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import requests
 import pandas as pd
 from licensing.models import *
@@ -52,7 +53,7 @@ if machine_code in hash_values_list:
     indexx = 0
     current_start_param = str(input("Ref id kiriting: ")) 
     stikersorash = int(input("Stiker qo'yilsinmi: Ha = 0 || Yo'q = 1: "))
-    sorash = int(input("Faqat limited check updates zadanya bajarilsinmi: Ha = 0 || Yo'q = 1: "))
+    sorash = int(input("Faqat Follow cult on X zadanya bajarilsinmi: Ha = 0 || Yo'q = 1: "))
 
     for deltaxd in phlist[qowiwjm:qowiwjm2]:
         try:
@@ -162,42 +163,42 @@ if machine_code in hash_values_list:
                     if sorash == 0:
                         #kunlik limitited
                         upfsytotos = {
-                            "questId": "672e58d21deb34d05e5baa55"
+                            "questId": "672fa90a4809c8b44bbe1e85"
                         }
                         import time
                         response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=upfsytotos, timeout=20)
                         response_data = response.json()
                         if response_data.get("success") and response_data.get("data"):
-                            print("Checkupdates bajarildi")
+                            print("Follow x cults bajarildi")
                         else:
-                            print("Chek updates zadanyasi bajarilmadi")
+                            print("Follow x cults zadanyasi bajarilmadi")
                         time.sleep(3)
                         response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=upfsytotos, timeout=10)
                         response_data = response.json()
                         if response_data.get("success") and response_data.get("data"):
-                            print("Chek updates bonusi olindi")
+                            print("Follow x cults bonusi olindi")
                         else:
-                            print("Chek updates bonusi olinmadi yoki oldin olingan")
+                            print("Follow x cults bonusi olinmadi yoki oldin olingan")
                     elif sorash == 1:
                         
                         #kunlik limitited
                         upfsytotos = {
-                            "questId": "672e58d21deb34d05e5baa55"
+                            "questId": "672fa90a4809c8b44bbe1e85"
                         }
                         import time
                         response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=upfsytotos, timeout=20)
                         response_data = response.json()
                         if response_data.get("success") and response_data.get("data"):
-                            print("Checkupdates bajarildi")
+                            print("Follow x cults bajarildi")
                         else:
-                            print("Chek updates zadanyasi bajarilmadi")
+                            print("Follow x cults zadanyasi bajarilmadi")
                         time.sleep(3)
                         response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=upfsytotos, timeout=10)
                         response_data = response.json()
                         if response_data.get("success") and response_data.get("data"):
-                            print("Chek updates bonusi olindi")
+                            print("Follow x cults bonusi olindi")
                         else:
-                            print("Chek updates bonusi olinmadi yoki oldin olingan")
+                            print("Follow x cults bonusi olinmadi yoki oldin olingan")
                     
                     
                         xpayload = {
