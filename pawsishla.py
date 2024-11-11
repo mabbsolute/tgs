@@ -45,7 +45,7 @@ if machine_code in hash_values_list:
     import asyncio
     from telethon.tl.types import InputBotAppShortName
     
-    print("OXIRGI KOD YANGILANGAN VAQT: 10.11.2024 01:03 PM")
+    print("OXIRGI KOD YANGILANGAN VAQT: 11.11.2024 01:32 PM")
 
     phonecsv = "phone"
     with open(f'{phonecsv}.csv', 'r') as f:
