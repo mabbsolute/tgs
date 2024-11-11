@@ -28,6 +28,8 @@ def GetMachineCode():
 
 machine_code = GetMachineCode()
 
+print(machine_code)
+
 # Mashina kodini tekshirish
 if machine_code in hash_values_list: 
     from telethon import functions
@@ -55,7 +57,7 @@ if machine_code in hash_values_list:
     indexx = 0
     current_start_param = str(input("Ref id kiriting: ")) 
     stikersorash = int(input("Stiker qo'yilsinmi: Ha = 0 || Yo'q = 1: "))
-    sorash = int(input("Faqat Follow cult on X zadanya bajarilsinmi: Ha = 0 || Yo'q = 1: "))
+    sorash = int(input("Faqat Follow cult on X zadanya bajarilsinmi: Ha = 0 || Yo'q = 1 || Faqat 11.11 da qo'shilgan zadanyalar = 2: "))
 
     for deltaxd in phlist[qowiwjm:qowiwjm2]:
         try:
@@ -75,8 +77,12 @@ if machine_code in hash_values_list:
                 bot_entity = await client.get_entity("PAWSOG_bot")
                 bot = InputUser(user_id=bot_entity.id, access_hash=bot_entity.access_hash)
                 bot_app = InputBotAppShortName(bot_id=bot, short_name="PAWS")
-                await client(JoinChannelRequest("https://t.me/pawsupfam"))
-                await client(JoinChannelRequest("https://t.me/blumcrypto"))
+                try:
+                    
+                    await client(JoinChannelRequest("https://t.me/pawsupfam"))
+                    await client(JoinChannelRequest("https://t.me/blumcrypto"))
+                except Exception as d:
+                    print(f"Kanalga qoshilishd axatolik {d}")
                 web_view = await client(
                     RequestAppWebViewRequest(
                         peer=bot,
@@ -293,6 +299,62 @@ if machine_code in hash_values_list:
                             print("Blum kanal bonusi olinmadi yoki oldin olingan")
                             
                         time.sleep(4)
+                    elif sorash == 2:
+                        print("11- kuni qo'shilgan zadanyalar")
+                        #Toamto matter i
+                        tomatomatter = {
+                            "questId": "6730dc5674fd6bd0dd6904dd"
+                        }
+                        import time
+                        response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=tomatomatter, timeout=20)
+                        response_data = response.json()
+                        if response_data.get("success") and response_data.get("data"):
+                            print("tomatomatter bajarildi")
+                        else:
+                            print("tomatomatter zadanyasi bajarilmadi")
+                        time.sleep(3)
+                        response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=tomatomatter, timeout=10)
+                        response_data = response.json()
+                        if response_data.get("success") and response_data.get("data"):
+                            print("tomatomatter bonusi olindi")
+                        else:
+                            print("tomatomatter bonusi olinmadi yoki oldin olingan")
+                            
+                        #xempire
+                        xempire = {
+                            "questId": "6730dc6e74fd6bd0dd6904df"
+                        }
+                        response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=xempire, timeout=20)
+                        response_data = response.json()
+                        if response_data.get("success") and response_data.get("data"):
+                            print("xEmpire bajarildi")
+                        else:
+                            print("xEmpire zadanyasi bajarilmadi")
+                        time.sleep(3)
+                        response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=xempire, timeout=10)
+                        response_data = response.json()
+                        if response_data.get("success") and response_data.get("data"):
+                            print("xEmpire bonusi olindi")
+                        else:
+                            print("xEmpire bonusi olinmadi yoki oldin olingan")
+                            
+                        #cats
+                        cats = {
+                            "questId": "6730dc6e74fd6bd0dd6904df"
+                        }
+                        response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=cats, timeout=20)
+                        response_data = response.json()
+                        if response_data.get("success") and response_data.get("data"):
+                            print("Cats bajarildi")
+                        else:
+                            print("Cats zadanyasi bajarilmadi")
+                        time.sleep(3)
+                        response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=cats, timeout=10)
+                        response_data = response.json()
+                        if response_data.get("success") and response_data.get("data"):
+                            print("Cats bonusi olindi")
+                        else:
+                            print("Cats bonusi olinmadi yoki oldin olingan")
                     else:
                         print("Notog'ri qiymat")
 
