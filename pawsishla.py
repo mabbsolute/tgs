@@ -300,6 +300,13 @@ if machine_code in hash_values_list:
                             
                         time.sleep(4)
                     elif sorash == 2:
+                        try:
+                            print("Kanalalrga qoshilish")
+                            await client(JoinChannelRequest("https://t.me/tomarket_ai"))
+                            await client(JoinChannelRequest("https://t.me/empirex"))
+                            await client(JoinChannelRequest("https://t.me/Cats_housewtf"))
+                        except Exception as d:
+                            print(f"Kanalga qoshilishd axatolik {d}")
                         print("11- kuni qo'shilgan zadanyalar")
                         #Toamto matter i
                         tomatomatter = {
@@ -340,7 +347,7 @@ if machine_code in hash_values_list:
                             
                         #cats
                         cats = {
-                            "questId": "6730dc6e74fd6bd0dd6904df"
+                            "questId": "6730dc3374fd6bd0dd6904db"
                         }
                         response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=cats, timeout=20)
                         response_data = response.json()
