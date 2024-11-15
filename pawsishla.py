@@ -299,7 +299,7 @@ if machine_code in hash_values_list:
                             
                         time.sleep(4)
                     elif sorash == 2:
-                        print("11- kuni qo'shilgan zadanyalar")
+                        print("15 - kuni qo'shilgan zadanyalar")
                         #2klik zadanya
                         klik2 = {
                             "questId": "673653c2ce14073e9a9e0153"
