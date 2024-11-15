@@ -187,25 +187,6 @@ if machine_code in hash_values_list:
                         else:
                             print("Follow x cults bonusi olinmadi yoki oldin olingan")
                     elif sorash == 1:
-                        
-                        #kunlik limitited
-                        upfsytotos = {
-                            "questId": "672fa90a4809c8b44bbe1e85"
-                        }
-                        import time
-                        response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=upfsytotos, timeout=20)
-                        response_data = response.json()
-                        if response_data.get("success") and response_data.get("data"):
-                            print("Follow x cults bajarildi")
-                        else:
-                            print("Follow x cults zadanyasi bajarilmadi")
-                        time.sleep(3)
-                        response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=upfsytotos, timeout=10)
-                        response_data = response.json()
-                        if response_data.get("success") and response_data.get("data"):
-                            print("Follow x cults bonusi olindi")
-                        else:
-                            print("Follow x cults bonusi olinmadi yoki oldin olingan")
                     
                     
                         #one falls one rise bonus
@@ -318,7 +299,25 @@ if machine_code in hash_values_list:
                             print("share your paws + image bonusi olindi")
                         else:
                             print("share your paws + image bonusi olinmadi yoki oldin olingan")
-                            
+                        #xcluts
+                        #kunlik limitited
+                        xcults = {
+                            "questId": "67362326ce14073e9a9e0144"
+                        }
+                        import time
+                        response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=xcults, timeout=20)
+                        response_data = response.json()
+                        if response_data.get("success") and response_data.get("data"):
+                            print("Follow x cults bajarildi")
+                        else:
+                            print("Follow x cults zadanyasi bajarilmadi")
+                        time.sleep(3)
+                        response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=xcults, timeout=10)
+                        response_data = response.json()
+                        if response_data.get("success") and response_data.get("data"):
+                            print("Follow x cults bonusi olindi")
+                        else:
+                            print("Follow x cults bonusi olinmadi yoki oldin olingan")
 
                     # Har bir sessiyadan keyin balansni qayta tekshirish
                     response = requests.post("https://api.paws.community/v1/user/auth", headers=headers, json=payload, timeout=10)
