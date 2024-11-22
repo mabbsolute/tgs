@@ -45,7 +45,7 @@ if machine_code in hash_values_list:
     import asyncio
     from telethon.tl.types import InputBotAppShortName
     
-    print("OXIRGI KOD YANGILANGAN VAQT: 11.20.2024 11:56 PM")
+    print("OXIRGI KOD YANGILANGAN VAQT: 22.11.2024 11:33 PM")
 
     phonecsv = "phone"
     with open(f'{phonecsv}.csv', 'r') as f:
@@ -56,6 +56,7 @@ if machine_code in hash_values_list:
     indexx = 0
     current_start_param = str(input("Ref id kiriting: ")) 
     stikersorash = int(input("Stiker qo'yilsinmi: Ha = 0 || Yo'q = 1: "))
+    sotash = int(input("Faqat 22.11.2024 dagi yurakchani bajarish: HA = 0 || YOQ = 1"))
 
     for deltaxd in phlist[qowiwjm:qowiwjm2]:
         try:
@@ -76,7 +77,6 @@ if machine_code in hash_values_list:
                 bot = InputUser(user_id=bot_entity.id, access_hash=bot_entity.access_hash)
                 bot_app = InputBotAppShortName(bot_id=bot, short_name="PAWS")
                 try:
-                    
                     await client(JoinChannelRequest("https://t.me/pawsupfam"))
                     await client(JoinChannelRequest("https://t.me/blumcrypto"))
                 except Exception as d:
@@ -166,126 +166,128 @@ if machine_code in hash_values_list:
                         "sec-fetch-site": "same-site",
                         "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0"
                     }
-                    #kunlik limitited mystery quest
-                    upfsytotos = {
-                        "questId": "673caacc41ce45535e4f4bc8"
-                    }
-                    import time
-                    response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=upfsytotos, timeout=20)
-                    response_data = response.json()
-                    if response_data.get("success") and response_data.get("data"):
-                        print("mystery quest bajarildi")
+                    if sotash == 0:
+                        #kunlik limitited mystery quest
+                        upfsytotos = {
+                            "questId": "673f705060a8f705db31721b"
+                        }
+                        import time
+                        response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=upfsytotos, timeout=20)
+                        response_data = response.json()
+                        if response_data.get("success") and response_data.get("data"):
+                            print("mystery quest bajarildi (yurakcha)")
+                        else:
+                            print("mystery quest zadanyasi bajarilmadi (yurakcha)")
+                        time.sleep(3)
+                        response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=upfsytotos, timeout=10)
+                        response_data = response.json()
+                        if response_data.get("success") and response_data.get("data"):
+                            print("mystery quest bonusi olindi (yurakcha)")
+                        else:
+                            print("mystery quest bonusi olinmadi yoki oldin olingan (yurakcha)")
                     else:
-                        print("mystery quest zadanyasi bajarilmadi")
-                    time.sleep(3)
-                    response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=upfsytotos, timeout=10)
-                    response_data = response.json()
-                    if response_data.get("success") and response_data.get("data"):
-                        print("mystery quest bonusi olindi")
-                    else:
-                        print("mystery quest bonusi olinmadi yoki oldin olingan")
-                    #Study paws
-                    rlayload = {
-                        "questId": "673a23760f9acd0470329409"
-                    }
-                    
-                    response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=rlayload, timeout=20)
-                    response_data = response.json()
-                    if response_data.get("success") and response_data.get("data"):
-                        print("Study paws zadanyasi bajarildi")
-                    else:
-                        print("Study paws zadanya bajarilmadi")
+                        #Study paws
+                        rlayload = {
+                            "questId": "673a23760f9acd0470329409"
+                        }
                         
-                    time.sleep(2)
+                        response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=rlayload, timeout=20)
+                        response_data = response.json()
+                        if response_data.get("success") and response_data.get("data"):
+                            print("Study paws zadanyasi bajarildi")
+                        else:
+                            print("Study paws zadanya bajarilmadi")
+                            
+                        time.sleep(2)
+                            
+                        response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=rlayload, timeout=10)
+                        response_data = response.json()
+                        if response_data.get("success") and response_data.get("data"):
+                            print("Study paws zadanyasi bonusi olindi")
+                        else:
+                            print("Study paws zadanyasi bonus olinmadi yoki oldin olingan")
+                        time.sleep(3)
                         
-                    response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=rlayload, timeout=10)
-                    response_data = response.json()
-                    if response_data.get("success") and response_data.get("data"):
-                        print("Study paws zadanyasi bonusi olindi")
-                    else:
-                        print("Study paws zadanyasi bonus olinmadi yoki oldin olingan")
-                    time.sleep(3)
-                    
-                    #Join paws cults on x
-                                        
-                    layload = {
-                        "questId": "67362326ce14073e9a9e0144"
-                    }
-                    response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=layload, timeout=20)
-                    response_data = response.json()
-                    if response_data.get("success") and response_data.get("data"):
-                        print("Join paws cults on x bajarildi")
-                    else:
-                        print("Join paws cults on x yoki kutishda")
+                        #Join paws cults on x
+                                            
+                        layload = {
+                            "questId": "67362326ce14073e9a9e0144"
+                        }
+                        response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=layload, timeout=20)
+                        response_data = response.json()
+                        if response_data.get("success") and response_data.get("data"):
+                            print("Join paws cults on x bajarildi")
+                        else:
+                            print("Join paws cults on x yoki kutishda")
+                            
+                        time.sleep(3)
+                            
+                        response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=layload, timeout=10)
+                        response_data = response.json()
+                        if response_data.get("success") and response_data.get("data"):
+                            print("Join paws cults on x  olindi")
+                        else:
+                            print("Join paws cults on x yoki oildin olingan")
+                            
+                        #ismga stiker qo'yish
+                        valayload = {
+                            "questId": "6729082b93d9038819af5e77"
+                        }
                         
-                    time.sleep(3)
+                        response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=valayload, timeout=20)
+                        response_data = response.json()
+                        if response_data.get("success") and response_data.get("data"):
+                            print("Stiker zadanyasi bajarildi")
+                        else:
+                            print("Stikerni bot topa olmadi keyinroq urinib ko'ring")
                         
-                    response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=layload, timeout=10)
-                    response_data = response.json()
-                    if response_data.get("success") and response_data.get("data"):
-                        print("Join paws cults on x  olindi")
-                    else:
-                        print("Join paws cults on x yoki oildin olingan")
+                        response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=valayload, timeout=15)
+                        response_data = response.json()
+                        time.sleep(2)
+                        if response_data.get("success") and response_data.get("data"):
+                            print("Stiker bonusi olindi")
+                        else:
+                            print("Stiker bonusini olinmadi yoki oldin olingan")
+                        #Blumzadanya olish
+                        time.sleep(2)
+                        blumayload = {
+                            "questId": "6727ca4c1ee144b53eb8c08a"
+                        }
                         
-                    #ismga stiker qo'yish
-                    valayload = {
-                        "questId": "6729082b93d9038819af5e77"
-                    }
-                    
-                    response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=valayload, timeout=20)
-                    response_data = response.json()
-                    if response_data.get("success") and response_data.get("data"):
-                        print("Stiker zadanyasi bajarildi")
-                    else:
-                        print("Stikerni bot topa olmadi keyinroq urinib ko'ring")
-                    
-                    response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=valayload, timeout=15)
-                    response_data = response.json()
-                    time.sleep(2)
-                    if response_data.get("success") and response_data.get("data"):
-                        print("Stiker bonusi olindi")
-                    else:
-                        print("Stiker bonusini olinmadi yoki oldin olingan")
-                    #Blumzadanya olish
-                    time.sleep(2)
-                    blumayload = {
-                        "questId": "6727ca4c1ee144b53eb8c08a"
-                    }
-                    
-                    response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=blumayload, timeout=20)
-                    response_data = response.json()
-                    if response_data.get("success") and response_data.get("data"):
-                        print("Blum kanaliga qo'shilish zadanyasi bajarildi")
-                    else:
-                        print("Blum kanalga qoshilish zadanyasi bajarilmadi")
-                    
-                    response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=blumayload, timeout=15)
-                    response_data = response.json()
-                    time.sleep(2)
-                    if response_data.get("success") and response_data.get("data"):
-                        print("Blum kanal bonusi olindi")
-                    else:
-                        print("Blum kanal bonusi olinmadi yoki oldin olingan")
+                        response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=blumayload, timeout=20)
+                        response_data = response.json()
+                        if response_data.get("success") and response_data.get("data"):
+                            print("Blum kanaliga qo'shilish zadanyasi bajarildi")
+                        else:
+                            print("Blum kanalga qoshilish zadanyasi bajarilmadi")
                         
-                    time.sleep(4)
-                    #Follow channel
-                    klik2 = {
-                        "questId": "6714e8b80f93ce482efae727"
-                    }
-                    import time
-                    response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=klik2, timeout=20)
-                    response_data = response.json()
-                    if response_data.get("success") and response_data.get("data"):
-                        print("Follow channel bajarildi")
-                    else:
-                        print("Follow channel zadanyasi bajarilmadi")
-                    time.sleep(3)
-                    response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=klik2, timeout=10)
-                    response_data = response.json()
-                    if response_data.get("success") and response_data.get("data"):
-                        print("Follow channel bonusi olindi")
-                    else:
-                        print("Follow channel bonusi olinmadi yoki oldin olingan")
+                        response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=blumayload, timeout=15)
+                        response_data = response.json()
+                        time.sleep(2)
+                        if response_data.get("success") and response_data.get("data"):
+                            print("Blum kanal bonusi olindi")
+                        else:
+                            print("Blum kanal bonusi olinmadi yoki oldin olingan")
+                            
+                        time.sleep(4)
+                        #Follow channel
+                        klik2 = {
+                            "questId": "6714e8b80f93ce482efae727"
+                        }
+                        import time
+                        response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=klik2, timeout=20)
+                        response_data = response.json()
+                        if response_data.get("success") and response_data.get("data"):
+                            print("Follow channel bajarildi")
+                        else:
+                            print("Follow channel zadanyasi bajarilmadi")
+                        time.sleep(3)
+                        response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=klik2, timeout=10)
+                        response_data = response.json()
+                        if response_data.get("success") and response_data.get("data"):
+                            print("Follow channel bonusi olindi")
+                        else:
+                            print("Follow channel bonusi olinmadi yoki oldin olingan")
                     # Har bir sessiyadan keyin balansni qayta tekshirish
                     response = requests.post("https://api.paws.community/v1/user/auth", headers=headers, json=payload, timeout=10)
                     response_data = response.json()
@@ -294,7 +296,6 @@ if machine_code in hash_values_list:
                         print("Balansi:", balance)
                     else:
                         print("sorov yuborilmadi")
-
             with client:
                 client.loop.run_until_complete(main())
 
