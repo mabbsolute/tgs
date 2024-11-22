@@ -56,7 +56,7 @@ if machine_code in hash_values_list:
     indexx = 0
     current_start_param = str(input("Ref id kiriting: ")) 
     stikersorash = int(input("Stiker qo'yilsinmi: Ha = 0 || Yo'q = 1: "))
-    sotash = int(input("Faqat 22.11.2024 dagi yurakchani bajarish: HA = 0 || YOQ = 1"))
+    sotash = int(input("Faqat 22.11.2024 dagi yurakchani bajarish: HA = 0 || YOQ = 1: "))
 
     for deltaxd in phlist[qowiwjm:qowiwjm2]:
         try:
