@@ -46,7 +46,7 @@ if machine_code in hash_values_list:
     import asyncio
     from telethon.tl.types import InputBotAppShortName
     
-    print("OXIRGI KOD YANGILANGAN VAQT: 23.11.2024 3:36 PM")
+    print("OXIRGI KOD YANGILANGAN VAQT: 27.11.2024  7:34 PM")
 
     phonecsv = "phone"
     with open(f'{phonecsv}.csv', 'r') as f:
@@ -57,8 +57,7 @@ if machine_code in hash_values_list:
     indexx = 0
     current_start_param = str(input("Ref id kiriting: ")) 
     stikersorash = int(input("Stiker qo'yilsinmi: Ha = 0 || Yo'q = 1: "))
-    print("Men hech qanday responsibilty olmayman hammasi o'z nafsingiz qo'lida bilgan boqiz yeng")
-    sotash = int(input("Noqonuniy bajarish (+7000): HA = 0 || Tog'ri zadanya bajarish (+1000) = 1 || bomasa 2: "))
+    sotash = int(input("21.11.2024 kungi zadaniyalar : HA = 0 || YO'QSA BOSHQA RAQAM:  "))
     for deltaxd in phlist[qowiwjm:qowiwjm2]:
         try:
             indexx += 1
@@ -78,8 +77,10 @@ if machine_code in hash_values_list:
                 bot = InputUser(user_id=bot_entity.id, access_hash=bot_entity.access_hash)
                 bot_app = InputBotAppShortName(bot_id=bot, short_name="PAWS")
                 try:
-                    await client(JoinChannelRequest("https://t.me/pawsupfam"))
+                    await client(JoinChannelRequest("https://t.me/bums_official"))
                     await client(JoinChannelRequest("https://t.me/blumcrypto"))
+                    await client(JoinChannelRequest("https://t.me/DuckChainAnn"))
+                    await client(JoinChannelRequest("https://t.me/tonclayton"))
                 except Exception as d:
                     print(f"Kanalga qoshilishd axatolik {d}")
                 web_view = await client(
@@ -169,93 +170,83 @@ if machine_code in hash_values_list:
                     }
                     if sotash == 0:
                         import time
-                        #kstiker bajarish
+                        #BUMS zadanyasi 
+                        
+                        #Follow bums tg
                         upfsytotos = {
-                            "questId": "6740b2cb15bd1d26b7b71266"
+                            "questId": "674227d69f3873c369783888"
                         }
                         response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=upfsytotos, timeout=20)
                         response_data = response.json()
                         if response_data.get("success") and response_data.get("data"):
-                            print(" add emoji 6k bonus zadanyasi bajarildi")
+                            print("Follow bums tg")
                         else:
-                            print(" add emoji 6k bonus zadanyasi bajarilmadi")
+                            print("Follow bums tg zadanyasi bajarilmadi")
                         time.sleep(3)
                         response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=upfsytotos, timeout=10)
                         response_data = response.json()
                         if response_data.get("success") and response_data.get("data"):
-                            print("add emoji 6k bonus olindi")
+                            print("Follow bums tg bonus olindi")
                         else:
-                            print("add emoji 6k bonus olinmadi yoki oldin olingan")
-                        #chech paws x
-                        upfsytotos = {
-                            "questId": "6740b35b15bd1d26b7b7126b"
+                            print("Follow bums tg bonus olinmadi yoki oldin olingan")
+                        #Explore BUMS Tg
+                        #zfuckchain
+                        
+                        #zfuckchain follow tg
+                        zukchain = {
+                            "questId": "67428fb29f3873c36978388c"
                         }
-                        response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=upfsytotos, timeout=20)
+                        response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=zukchain, timeout=20)
                         response_data = response.json()
                         if response_data.get("success") and response_data.get("data"):
-                            print("chech paws x zadanyasi bajarildi")
+                            print("zfuckchain follow tg")
                         else:
-                            print("chech paws x zadanyasi bajarilmadi")
+                            print("zfuckchain follow tg zadanyasi bajarilmadi")
                         time.sleep(3)
-                        response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=upfsytotos, timeout=10)
+                        response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=zukchain, timeout=10)
                         response_data = response.json()
                         if response_data.get("success") and response_data.get("data"):
-                            print("chech paws x bonus olindi")
+                            print("zfuckchain follow tg bonus olindi")
                         else:
-                            print("chech paws x bpnusi olinmadi yoki oldin olingan")
-                        #checpawstg
-                        upfsytotos = {
-                            "questId": "6740b33415bd1d26b7b71269"
+                            print("zfuckchain follow tg bonus olinmadi yoki oldin olingan")
+                            
+                        #layton
+                        #Clayton follow tg
+                        clayton = {
+                            "questId": "674290c39f3873c369783892"
                         }
-                        response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=upfsytotos, timeout=20)
+                        response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=clayton, timeout=20)
                         response_data = response.json()
                         if response_data.get("success") and response_data.get("data"):
-                            print("checpawstg zadanyasi bajarildi")
+                            print(" Clayton follow tg zadanyasi bajarildi")
                         else:
-                            print("checpawstg zadanyasi bajarilmadi")
+                            print("Clayton follow tg zadanyasi bajarilmadi")
                         time.sleep(3)
-                        response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=upfsytotos, timeout=10)
+                        response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=clayton, timeout=10)
                         response_data = response.json()
                         if response_data.get("success") and response_data.get("data"):
-                            print("checpawstg bonus olindi")
+                            print("Clayton follow tg bonus olindi")
                         else:
-                            print("checpawstg bonusi olinmadi yoki oldin olingan")
-                    elif sotash == 1:
-                        import time
-                        #chech paws x
-                        upfsytotos = {
-                            "questId": "6740b35b15bd1d26b7b7126b"
+                            print("Clayton follow tg bonus olinmadi yoki oldin olingan")
+                            
+                        #Clayton boti start
+                        
+
+                        pizdesquest = {
+                            "questId": "674290209f3873c369783890"
                         }
-                        response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=upfsytotos, timeout=20)
+                        response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=pizdesquest, timeout=20)
                         response_data = response.json()
                         if response_data.get("success") and response_data.get("data"):
-                            print("chech paws x zadanyasi bajarildi")
+                            print("Clayton explore  zadanyasi bajarildi")
                         else:
-                            print("chech paws x zadanyasi bajarilmadi")
-                        time.sleep(3)
-                        response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=upfsytotos, timeout=10)
+                            print("Clayton explore zadanyasi bajarilmadi")
+                        response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=pizdesquest, timeout=10)
                         response_data = response.json()
                         if response_data.get("success") and response_data.get("data"):
-                            print("chech paws x bonus olindi")
+                            print("Clayton explore bonus olindi")
                         else:
-                            print("chech paws x bpnusi olinmadi yoki oldin olingan")
-                        #checpawstg
-                        upfsytotos = {
-                            "questId": "6740b33415bd1d26b7b71269"
-                        }
-                        response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=upfsytotos, timeout=20)
-                        response_data = response.json()
-                        if response_data.get("success") and response_data.get("data"):
-                            print("checpawstg zadanyasi bajarildi")
-                        else:
-                            print("checpawstg zadanyasi bajarilmadi")
-                        time.sleep(3)
-                        response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=upfsytotos, timeout=10)
-                        response_data = response.json()
-                        if response_data.get("success") and response_data.get("data"):
-                            print("checpawstg bonus olindi")
-                        else:
-                            print("checpawstg bonusi olinmadi yoki oldin olingan")
+                            print("Clayton explore bonus olinmadi yoki oldin olingan")
                         
                     else:
                         #Study paws
