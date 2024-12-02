@@ -76,7 +76,7 @@ if machine_code in hash_values_list:
                 bot = InputUser(user_id=bot_entity.id, access_hash=bot_entity.access_hash)
                 bot_app = InputBotAppShortName(bot_id=bot, short_name="PAWS")
                 try:
-                    await client(JoinChannelRequest("https://t.me/bums_official"))
+                    await client(JoinChannelRequest("https://t.me/kukurakuku"))
                     await client(JoinChannelRequest("https://t.me/enshteyn40codes"))
                 except Exception as d:
                     print(f"Kanalga qoshilishd axatolik {d}")
