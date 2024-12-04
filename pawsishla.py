@@ -46,7 +46,7 @@ if machine_code in hash_values_list:
     import asyncio
     from telethon.tl.types import InputBotAppShortName
     
-    print("OXIRGI KOD YANGILANGAN VAQT: 03.12.2024  1:20 AM")
+    print("OXIRGI KOD YANGILANGAN VAQT: 04.12.2024  220 PM")
     phonecsv = "phone"
     with open(f'{phonecsv}.csv', 'r') as f:
         phlist = [row[0] for row in csv.reader(f)]
@@ -56,7 +56,7 @@ if machine_code in hash_values_list:
     indexx = 0
     current_start_param = str(input("Ref id kiriting: ")) 
     stikersorash = int(input("Stiker qo'yilsinmi: Ha = 0 || Yo'q = 1: "))
-    sotash = int(input("03.12.2024 kungi zadaniyalar : HA = 0 || YO'QSA BOSHQA RAQAM:  "))
+    sotash = int(input("04.12.2024 kungi zadaniyalar : HA = 0 || YO'QSA BOSHQA RAQAM:  "))
     for deltaxd in phlist[qowiwjm:qowiwjm2]:
         try:
             indexx += 1
@@ -76,7 +76,7 @@ if machine_code in hash_values_list:
                 bot = InputUser(user_id=bot_entity.id, access_hash=bot_entity.access_hash)
                 bot_app = InputBotAppShortName(bot_id=bot, short_name="PAWS")
                 try:
-                    await client(JoinChannelRequest("https://t.me/kukurakuku"))
+                    await client(JoinChannelRequest("https://t.me/bums_official"))
                     await client(JoinChannelRequest("https://t.me/enshteyn40codes"))
                 except Exception as d:
                     print(f"Kanalga qoshilishd axatolik {d}")
@@ -171,21 +171,21 @@ if machine_code in hash_values_list:
                         
                         #Follow bums tg
                         upfsytotos = {
-                            "questId": "674dcb4b30dc53f7e9aec470"
+                            "questId": "674f45e99bfbbe63fab834f2"
                         }
                         response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=upfsytotos, timeout=20)
                         response_data = response.json()
                         if response_data.get("success") and response_data.get("data"):
-                            print("Mystery quest +8k zadanyasi bajarildi")
+                            print("Get Lucky zadanyasi bajarildi")
                         else:
-                            print("Mystery quest +8k zadanyasi bajarilmadi")
+                            print("Get Lucky  zadanyasi bajarilmadi")
                         time.sleep(3)
                         response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=upfsytotos, timeout=10)
                         response_data = response.json()
                         if response_data.get("success") and response_data.get("data"):
-                            print("Mystery quest +8k bonus olindi")
+                            print("Get Lucky bonus olindi")
                         else:
-                            print("Mystery quest +8k bonus olinmadi yoki oldin olingan")
+                            print("Get Lucky bonus olinmadi yoki oldin olingan")
                     else:
                         #Study paws
                         rlayload = {
