@@ -125,15 +125,19 @@ if machine_code in hash_values_list:
     print('Jami Nomerlar: ' + str(len(phlist)))
 
 
-    indexx = 0
+    
     current_start_param = str(input("Ref id kiriting: ")) 
     stikersorash = int(input("Stiker qo'yilsinmi: Ha = 0 || Yo'q = 1: "))
     sotash = int(input("07.12.2024 kungi zadaniyalar  = 0:  ||\nAdd Paws emoji qilish (NOQONUNIY)  = 1:  ||\n Doimiy zadaniyalar qilish = 2: "))
 
     async def main():
+        indexx = 0
         import time
-        print("OXIRGI KOD YANGILANGAN VAQT: 08.12.2024  01:28 AM")
+        print("OXIRGI KOD YANGILANGAN VAQT: 08.12.2024  01:33 AM")
         for phone in phlist: 
+            indexx += 1
+            print(f'Index : {indexx}')
+            print(f"Raqam {phone}")
             phone = utils.parse_phone(phone)
             path = f'pyrosessions/{phone}.session'
             session = await get_data_from_sessions_table(path)
