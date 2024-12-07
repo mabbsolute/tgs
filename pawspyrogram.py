@@ -3,7 +3,7 @@ import requests
 import pandas as pd
 from licensing.models import *
 from licensing.methods import Key, Helpers
-
+import time
 # GitHub repository URL
 url = "https://raw.githubusercontent.com/Enshteyn40/crdevice/refs/heads/main/uzsolish.csv"
 
@@ -128,14 +128,14 @@ if machine_code in hash_values_list:
     indexx = 0
     current_start_param = str(input("Ref id kiriting: ")) 
     stikersorash = int(input("Stiker qo'yilsinmi: Ha = 0 || Yo'q = 1: "))
-    sotash = int(input("05.12.2024 kungi zadaniyalar : HA = 0 || YO'QSA BOSHQA RAQAM:  "))
+    sotash = int(input("07.12.2024 kungi zadaniyalar : HA = 0 || Doimiy zadaniyalarni bajarish uchun boshqa raqam:  "))
 
     async def main():
-        
+        import time
+        print("OXIRGI KOD YANGILANGAN VAQT: 08.12.2024  01:05 AM")
         for phone in phlist: 
             phone = utils.parse_phone(phone)
             path = f'memory/{phone}.session'
-            print(path)
             session = await get_data_from_sessions_table(path)
             pyrogram_session_string = await get_pyrogram_session_string(session)
             telethon_session_string = await get_telethon_session_string(session)
@@ -149,11 +149,6 @@ if machine_code in hash_values_list:
                     bot_entity = await client.get_entity("PAWSOG_bot")
                     bot = InputUser(user_id=bot_entity.id, access_hash=bot_entity.access_hash)
                     bot_app = InputBotAppShortName(bot_id=bot, short_name="PAWS")
-                    try:
-                        await client(JoinChannelRequest("https://t.me/bums_official"))
-                        await client(JoinChannelRequest("https://t.me/enshteyn40codes"))
-                    except Exception as d:
-                        print(f"Kanalga qoshilishd axatolik {d}")
                     web_view = await client(
                         RequestAppWebViewRequest(
                             peer=bot,
@@ -260,8 +255,29 @@ if machine_code in hash_values_list:
                                 print("React Harder bonus olindi")
                             else:
                                 print("React Harder bonus olinmadi yoki claim hali ochilmagan keyinroq ishlating")
+                        elif sotash == 1:
+                            import time
+                            print("Premium stiker zadanyasini o'zini bajaramiz")
+                            #Add PAWS emoji
+                            k5plus = {
+                                "questId": "67532ea5a3770d4f94e38f6f"
+                            }
+                            response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=k5plus, timeout=20)
+                            response_data = response.json()
+                            if response_data.get("success") and response_data.get("data"):
+                                print("Add PAWS emoji zadanyasi bajarildi")
+                            else:
+                                print("Add PAWS emoji  zadanyasi bajarilmadi")
+                            time.sleep(3)
+                            response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=k5plus, timeout=10)
+                            response_data = response.json()
+                            if response_data.get("success") and response_data.get("data"):
+                                print("Add PAWS emoji bonus olindi")
+                            else:
+                                print("Add PAWS emoji bonus olinmadi yoki claim hali ochilmagan keyinroq ishlating")
                         else:
                             #Study paws
+                            import time
                             rlayload = {
                                 "questId": "673a23760f9acd0470329409"
                             }
@@ -329,6 +345,12 @@ if machine_code in hash_values_list:
                                 "questId": "6727ca4c1ee144b53eb8c08a"
                             }
                             
+                            try:
+                                await client(JoinChannelRequest("https://t.me/bums_official"))
+                                print("Blum kanaliga qoshildi")
+                            except Exception as d:
+                                print(f"Kanalga qoshilishd axatolik {d}")
+                            
                             response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=blumayload, timeout=20)
                             response_data = response.json()
                             if response_data.get("success") and response_data.get("data"):
@@ -363,16 +385,6 @@ if machine_code in hash_values_list:
                                 print("Follow channel bonusi olindi")
                             else:
                                 print("Follow channel bonusi olinmadi yoki oldin olingan")
-                        # Har bir sessiyadan keyin balansni qayta tekshirish
-                        response = requests.post("https://api.paws.community/v1/user/auth", headers=headers, json=payload, timeout=10)
-                        response_data = response.json()
-                        if response_data.get("success"):
-                            balance = user_data["gameData"]["balance"]
-                            print("Balansi:", balance)
-                        else:
-                            print("sorov yuborilmadi")
-                    me = await client.get_me()
-                    print(me.first_name)
                     
             except Exception as e:
                 print("error: ", e)
