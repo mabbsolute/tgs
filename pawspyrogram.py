@@ -132,7 +132,7 @@ if machine_code in hash_values_list:
 
     async def main():
         import time
-        print("OXIRGI KOD YANGILANGAN VAQT: 08.12.2024  01:05 AM")
+        print("OXIRGI KOD YANGILANGAN VAQT: 08.12.2024  01:28 AM")
         for phone in phlist: 
             phone = utils.parse_phone(phone)
             path = f'pyrosessions/{phone}.session'
