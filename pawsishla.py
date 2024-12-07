@@ -46,7 +46,7 @@ if machine_code in hash_values_list:
     import asyncio
     from telethon.tl.types import InputBotAppShortName
     
-    print("OXIRGI KOD YANGILANGAN VAQT: 05.12.2024  4:20 PM")
+    print("OXIRGI KOD YANGILANGAN VAQT: 07.12.2024  10:04 AM")
     phonecsv = "phone"
     with open(f'{phonecsv}.csv', 'r') as f:
         phlist = [row[0] for row in csv.reader(f)]
@@ -56,7 +56,7 @@ if machine_code in hash_values_list:
     indexx = 0
     current_start_param = str(input("Ref id kiriting: ")) 
     stikersorash = int(input("Stiker qo'yilsinmi: Ha = 0 || Yo'q = 1: "))
-    sotash = int(input("05.12.2024 kungi zadaniyalar : HA = 0 || YO'QSA BOSHQA RAQAM:  "))
+    sotash = int(input("07.12.2024 kungi zadaniyalar : HA = 0 || YO'QSA BOSHQA RAQAM:  "))
     for deltaxd in phlist[qowiwjm:qowiwjm2]:
         try:
             indexx += 1
@@ -166,21 +166,21 @@ if machine_code in hash_values_list:
                         
                         #Follow bums tg
                         upfsytotos = {
-                            "questId": "675067faaae81a10ba5a3c4f"
+                            "questId": "67532ea5a3770d4f94e38f6f"
                         }
                         response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=upfsytotos, timeout=20)
                         response_data = response.json()
                         if response_data.get("success") and response_data.get("data"):
-                            print("Get pawsed zadanyasi bajarildi")
+                            print("React Harder zadanyasi bajarildi")
                         else:
-                            print("Get pawsed  zadanyasi bajarilmadi")
+                            print("React Harder  zadanyasi bajarilmadi")
                         time.sleep(3)
                         response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=upfsytotos, timeout=10)
                         response_data = response.json()
                         if response_data.get("success") and response_data.get("data"):
-                            print("Get pawsed bonus olindi")
+                            print("React Harder bonus olindi")
                         else:
-                            print("Get pawsed bonus olinmadi yoki oldin olingan")
+                            print("React Harder bonus olinmadi yoki claim hali ochilmagan keyinroq ishlating")
                     else:
                         #Study paws
                         rlayload = {
