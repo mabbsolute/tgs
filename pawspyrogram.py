@@ -119,7 +119,7 @@ if machine_code in hash_values_list:
         return CURRENT_VERSION + StringSession.encode(packed)
 
     import csv
-    phonecsv = "phone"
+    phonecsv = "paws"
     with open(f'{phonecsv}.csv', 'r') as f:
         phlist = [row[0] for row in csv.reader(f)]
     print('Jami Nomerlar: ' + str(len(phlist)))
@@ -128,14 +128,14 @@ if machine_code in hash_values_list:
     indexx = 0
     current_start_param = str(input("Ref id kiriting: ")) 
     stikersorash = int(input("Stiker qo'yilsinmi: Ha = 0 || Yo'q = 1: "))
-    sotash = int(input("07.12.2024 kungi zadaniyalar : HA = 0 || Doimiy zadaniyalarni bajarish uchun boshqa raqam:  "))
+    sotash = int(input("07.12.2024 kungi zadaniyalar  = 0:  ||\nAdd Paws emoji qilish (NOQONUNIY)  = 1:  ||\n Doimiy zadaniyalar qilish = 2: "))
 
     async def main():
         import time
         print("OXIRGI KOD YANGILANGAN VAQT: 08.12.2024  01:05 AM")
         for phone in phlist: 
             phone = utils.parse_phone(phone)
-            path = f'memory/{phone}.session'
+            path = f'pyrosessions/{phone}.session'
             session = await get_data_from_sessions_table(path)
             pyrogram_session_string = await get_pyrogram_session_string(session)
             telethon_session_string = await get_telethon_session_string(session)
@@ -260,7 +260,7 @@ if machine_code in hash_values_list:
                             print("Premium stiker zadanyasini o'zini bajaramiz")
                             #Add PAWS emoji
                             k5plus = {
-                                "questId": "67532ea5a3770d4f94e38f6f"
+                                "questId": "6740b2cb15bd1d26b7b71266"
                             }
                             response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=k5plus, timeout=20)
                             response_data = response.json()
