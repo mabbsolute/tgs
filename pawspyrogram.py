@@ -119,7 +119,7 @@ if machine_code in hash_values_list:
         return CURRENT_VERSION + StringSession.encode(packed)
 
     import csv
-    phonecsv = "paws"
+    phonecsv = "phone"
     with open(f'{phonecsv}.csv', 'r') as f:
         phlist = [row[0] for row in csv.reader(f)]
     print('Jami Nomerlar: ' + str(len(phlist)))
@@ -133,13 +133,13 @@ if machine_code in hash_values_list:
     async def main():
         indexx = 0
         import time
-        print("OXIRGI KOD YANGILANGAN VAQT: 08.12.2024  01:33 AM")
+        print("OXIRGI KOD YANGILANGAN VAQT: 08.12.2024  01:41 AM")
         for phone in phlist: 
             indexx += 1
             print(f'Index : {indexx}')
             print(f"Raqam {phone}")
             phone = utils.parse_phone(phone)
-            path = f'pyrosessions/{phone}.session'
+            path = f'memory/{phone}.session'
             session = await get_data_from_sessions_table(path)
             pyrogram_session_string = await get_pyrogram_session_string(session)
             telethon_session_string = await get_telethon_session_string(session)
