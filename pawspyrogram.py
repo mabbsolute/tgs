@@ -125,15 +125,15 @@ if machine_code in hash_values_list:
     print('Jami Nomerlar: ' + str(len(phlist)))
 
 
-    
+    print("OXIRGI KOD YANGILANGAN VAQT: 12.12.2024  01:33 AM")
     current_start_param = str(input("Ref id kiriting: ")) 
     stikersorash = int(input("Stiker qo'yilsinmi: Ha = 0 || Yo'q = 1: "))
-    sotash = int(input("07.12.2024 kungi zadaniyalar  = 0:  ||\nAdd Paws emoji qilish (NOQONUNIY)  = 1:  ||\n Doimiy zadaniyalar qilish = 2: "))
+    sotash = int(input("12.12.2024 kungi zadaniyalar  = 0:  ||\nAdd Paws emoji qilish (NOQONUNIY)  = 1:  ||\n Doimiy zadaniyalar qilish = 2: "))
 
     async def main():
         indexx = 0
         import time
-        print("OXIRGI KOD YANGILANGAN VAQT: 08.12.2024  01:41 AM")
+        
         for phone in phlist: 
             indexx += 1
             print(f'Index : {indexx}')
@@ -240,25 +240,108 @@ if machine_code in hash_values_list:
                         }
                         if sotash == 0:
                             import time
-                            #BUMS zadanyasi 
-                            
-                            #Follow bums tg
-                            upfsytotos = {
-                                "questId": "67532ea5a3770d4f94e38f6f"
+                            #Paws pizdes olnaxuy
+                            upfsytotos1 = {
+                                "questId": "675729bc8a00f11f8cf8c1fd"
                             }
-                            response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=upfsytotos, timeout=20)
+                            response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=upfsytotos1, timeout=20)
                             response_data = response.json()
                             if response_data.get("success") and response_data.get("data"):
-                                print("React Harder zadanyasi bajarildi")
+                                print("Reach 1 th Milistone  zadanyasi bajarildi")
                             else:
-                                print("React Harder  zadanyasi bajarilmadi")
+                                print("Reach 1 th Milistone  zadanyasi bajarilmadi")
                             time.sleep(3)
-                            response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=upfsytotos, timeout=10)
+                            response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=upfsytotos1, timeout=10)
                             response_data = response.json()
                             if response_data.get("success") and response_data.get("data"):
-                                print("React Harder bonus olindi")
+                                print("Reach 1 th Milistone bonus olindi")
                             else:
-                                print("React Harder bonus olinmadi yoki claim hali ochilmagan keyinroq ishlating")
+                                print("Reach 1 th Milistone bonus olinmadi yoki claim hali ochilmagan keyinroq ishlating")
+                            #2-milistone
+                            upfsytotos2 = {
+                                "questId": "67572a2c8a00f11f8cf8c1ff"
+                            }
+                            response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=upfsytotos2, timeout=20)
+                            response_data = response.json()
+                            if response_data.get("success") and response_data.get("data"):
+                                print("Reach 2 th Milistone zadanyasi bajarildi")
+                            else:
+                                print("Reach 2 th Milistone  zadanyasi bajarilmadi")
+                            time.sleep(3)
+                            response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=upfsytotos2, timeout=10)
+                            response_data = response.json()
+                            if response_data.get("success") and response_data.get("data"):
+                                print("Reach 2 th Milistone bonus olindi")
+                            else:
+                                print("Reach 2 th Milistone bonus olinmadi yoki claim hali ochilmagan keyinroq ishlating")
+                            #3 reach milistone
+                            upfsytotos3 = {
+                                "questId": "6757a207ec9bc04f1beb0e75"
+                            }
+                            response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=upfsytotos3, timeout=20)
+                            response_data = response.json()
+                            if response_data.get("success") and response_data.get("data"):
+                                print("Reach 3 th Milistone zadanyasi bajarildi")
+                            else:
+                                print("Reach 3 th Milistone  zadanyasi bajarilmadi")
+                            time.sleep(3)
+                            response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=upfsytotos3, timeout=10)
+                            response_data = response.json()
+                            if response_data.get("success") and response_data.get("data"):
+                                print("Reach 3 th Milistone bonus olindi")
+                            else:
+                                print("Reach 3 th Milistone bonus olinmadi yoki claim hali ochilmagan keyinroq ishlating")
+                            #rech 4 milistone
+                            upfsytotos4 = {
+                                "questId": "6757a21dec9bc04f1beb0e77"
+                            }
+                            response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=upfsytotos4, timeout=20)
+                            response_data = response.json()
+                            if response_data.get("success") and response_data.get("data"):
+                                print("Reach 4 th Milistone zadanyasi bajarildi")
+                            else:
+                                print("Reach 4 th Milistone  zadanyasi bajarilmadi")
+                            time.sleep(3)
+                            response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=upfsytotos4, timeout=10)
+                            response_data = response.json()
+                            if response_data.get("success") and response_data.get("data"):
+                                print("Reach 4 th Milistone bonus olindi")
+                            else:
+                                print("Reach 4 th Milistone bonus olinmadi yoki claim hali ochilmagan keyinroq ishlating")
+                            #rech 5 milistone
+                            upfsytotos5 = {
+                                "questId": "6757a232ec9bc04f1beb0e79"
+                            }
+                            response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=upfsytotos5, timeout=20)
+                            response_data = response.json()
+                            if response_data.get("success") and response_data.get("data"):
+                                print("Reach 5 th Milistone zadanyasi bajarildi")
+                            else:
+                                print("Reach 5 th Milistone  zadanyasi bajarilmadi")
+                            time.sleep(3)
+                            response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=upfsytotos5, timeout=10)
+                            response_data = response.json()
+                            if response_data.get("success") and response_data.get("data"):
+                                print("Reach 5 th Milistone bonus olindi")
+                            else:
+                                print("Reach 5 th Milistone bonus olinmadi yoki claim hali ochilmagan keyinroq ishlating")
+                            #milistone 6
+                            #upfsytotos6 = {
+                            #    "questId": "6758d84842df2161c728c742"
+                            #}
+                            #response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=upfsytotos6, timeout=20)
+                            #response_data = response.json()
+                            #if response_data.get("success") and response_data.get("data"):
+                            #    print("Reach 6 th Milistone zadanyasi bajarildi")
+                            #else:
+                            #    print("Reach 6 th Milistone  zadanyasi bajarilmadi")
+                            #time.sleep(3)
+                            #response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=upfsytotos6, timeout=10)
+                            #response_data = response.json()
+                            #if response_data.get("success") and response_data.get("data"):
+                            #    print("Reach 6 th Milistone bonus olindi")
+                            #else:
+                            #    print("Reach 6 th Milistone bonus olinmadi yoki claim hali ochilmagan keyinroq ishlating")
                         elif sotash == 1:
                             import time
                             print("Premium stiker zadanyasini o'zini bajaramiz")
