@@ -48,7 +48,7 @@ if machine_code in hash_values_list:
     import time
     
     print("OXIRGI KOD YANGILANGAN VAQT: 12.12.2024  02:46 AM")
-    phonecsv = "paws"
+    phonecsv = "phone"
     with open(f'{phonecsv}.csv', 'r') as f:
         phlist = [row[0] for row in csv.reader(f)]
     print('Jami Nomerlar: ' + str(len(phlist)))
