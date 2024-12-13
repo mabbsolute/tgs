@@ -249,22 +249,22 @@ if machine_code in hash_values_list:
                         else:
                             print("Reach 5 th Milistone bonus olinmadi yoki claim hali ochilmagan keyinroq ishlating")
                         #milistone 6
-                        #upfsytotos6 = {
-                        #    "questId": "6758d84842df2161c728c742"
-                        #}
-                        #response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=upfsytotos6, timeout=20)
-                        #response_data = response.json()
-                        #if response_data.get("success") and response_data.get("data"):
-                        #    print("Reach 6 th Milistone zadanyasi bajarildi")
-                        #else:
-                        #    print("Reach 6 th Milistone  zadanyasi bajarilmadi")
-                        #time.sleep(3)
-                        #response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=upfsytotos6, timeout=10)
-                        #response_data = response.json()
-                        #if response_data.get("success") and response_data.get("data"):
-                        #    print("Reach 6 th Milistone bonus olindi")
-                        #else:
-                        #    print("Reach 6 th Milistone bonus olinmadi yoki claim hali ochilmagan keyinroq ishlating")
+                        upfsytotos6 = {
+                            "questId": "6758d84842df2161c728c742"
+                        }
+                        response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=upfsytotos6, timeout=20)
+                        response_data = response.json()
+                        if response_data.get("success") and response_data.get("data"):
+                            print("Reach 6 th Milistone zadanyasi bajarildi")
+                        else:
+                            print("Reach 6 th Milistone  zadanyasi bajarilmadi")
+                        time.sleep(3)
+                        response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=upfsytotos6, timeout=10)
+                        response_data = response.json()
+                        if response_data.get("success") and response_data.get("data"):
+                            print("Reach 6 th Milistone bonus olindi")
+                        else:
+                            print("Reach 6 th Milistone bonus olinmadi yoki claim hali ochilmagan keyinroq ishlating")
                     else:
                         import time
                         #Study paws
