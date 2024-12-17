@@ -51,6 +51,13 @@ if machine_code in hash_values_list:
     with open(r"/storage/emulated/0/giv/captcha2.csv", 'r') as f: 
         reader = csv.reader(f)
         captchapai = next(reader)[0]
+    #with open(r"C:\join\ochiqkanal.csv", 'r') as f:
+    #    premium_channels = [row[0] for row in csv.reader(f)]
+    #with open(r"C:\join\yopiqkanal.csv", 'r') as f:
+    #    yopiq_channels = [row[0] for row in csv.reader(f)] 
+    #with open(r"C:\join\givid.csv", 'r') as f:
+    #    giv_ids_ozim = [row[0] for row in csv.reader(f)] 
+    #captchapai = "1b8324721dc1628de785d91cb5f6a6da"
     
     from twocaptcha import TwoCaptcha
 
@@ -139,8 +146,10 @@ if machine_code in hash_values_list:
                 print(f"{LIGHT_CYAN}Mukofot puli: {summa} - {asset}{RESET}")
                 
             if can_join and qatnasgyabdimi == "not_member":
+                
                 print("Givga qo'shilishni boshladik!!!")
                 for channel_link in premium_channels:
+                    
                     try: 
                         await tg_client(JoinChannelRequest(channel_link))
                     except:
@@ -148,7 +157,7 @@ if machine_code in hash_values_list:
                     try:
                         await tg_client(JoinChannelRequest(channel_link))
                         print(f"{LIGHT_GREEN}{name}{RESET} | Kanalga qo'shildi {LIGHT_CYAN}{channel_link}{RESET}")
-                    except:
+                    except Exception as e:
                         print(f"{LIGHT_GREEN}{name}{RESET} | Kanalga qo'shilishda Xatolik {LIGHT_CYAN}{channel_link}{RESET}")
                 for yopiq_link in yopiq_channels:
                     try: 
@@ -238,6 +247,8 @@ if machine_code in hash_values_list:
             except Exception as e:
                 print(f"⚠️ {phone} uchun xatolik: {e}")
                 await tg_client.disconnect()
+
+
     if __name__ == "__main__":
         import asyncio
         asyncio.run(main())
