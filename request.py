@@ -42,7 +42,7 @@ if machine_code in hash_values_list:
     from telethon.tl.functions.messages import RequestWebViewRequest
     from telethon.tl.functions.account import UpdateStatusRequest
     import csv
-    print("Oxirgi kod yangilangan vaqti: 17.12.2021 6:35 PM")
+    print("Oxirgi kod yangilangan vaqti: 17.12.2021 6:41 PM")
     with open(r"/storage/emulated/0/giv/ochiqkanal.csv", 'r') as f:
         premium_channels = [row[0] for row in csv.reader(f)]
     with open(r"/storage/emulated/0/giv/yopiqkanal.csv", 'r') as f:
@@ -84,6 +84,16 @@ if machine_code in hash_values_list:
             )
             url = web_view.url.replace('tgWebAppVersion=7.0', 'tgWebAppVersion=8.0')
             return url
+    import random
+    def get_random_useragent():
+        user_agents = [
+            UserAgent(platforms=["pc"], browsers=["chrome"], os=["windows"]),
+            UserAgent(platforms=["pc"], browsers=["chrome"], os=["macos"]),
+            UserAgent(platforms=["mobile"], browsers=["chrome"], os=["android"]),
+            UserAgent(platforms=["mobile"], browsers=["chrome"], os=["ios"], min_version=125.0),
+        ]
+
+        return random.choice(user_agents).random
 
     async def request_participate(api_key, site_key, url, auth_url, giveaway_code, tg_client: TelegramClient, name: str):
         try:
@@ -104,7 +114,7 @@ if machine_code in hash_values_list:
                 'sec-fetch-dest': 'empty',
                 'sec-fetch-mode': 'cors',
                 'sec-fetch-site': 'same-site',
-                'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0'
+                'user-agent': get_random_useragent()
             }
 
             http_client.headers.update(headers)
