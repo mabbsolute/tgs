@@ -139,10 +139,8 @@ if machine_code in hash_values_list:
                 print(f"{LIGHT_CYAN}Mukofot puli: {summa} - {asset}{RESET}")
                 
             if can_join and qatnasgyabdimi == "not_member":
-                
                 print("Givga qo'shilishni boshladik!!!")
                 for channel_link in premium_channels:
-                    
                     try: 
                         await tg_client(JoinChannelRequest(channel_link))
                     except:
@@ -150,14 +148,14 @@ if machine_code in hash_values_list:
                     try:
                         await tg_client(JoinChannelRequest(channel_link))
                         print(f"{LIGHT_GREEN}{name}{RESET} | Kanalga qo'shildi {LIGHT_CYAN}{channel_link}{RESET}")
-                    except Exception as e:
-                        print(f"{LIGHT_GREEN}{name}{RESET} | Kanalga qo'shilishda Xatolik {LIGHT_CYAN}{channel_link}{RESET} {e}")
+                    except:
+                        print(f"{LIGHT_GREEN}{name}{RESET} | Kanalga qo'shilishda Xatolik {LIGHT_CYAN}{channel_link}{RESET}")
                 for yopiq_link in yopiq_channels:
                     try: 
                         await tg_client(ImportChatInviteRequest(yopiq_link))
                         print(f"{LIGHT_GREEN}{name} | Kanalga qo'shildi {LIGHT_CYAN}{yopiq_link}{RESET}")
                     except:
-                        print(f"{LIGHT_GREEN}{name}{RESET} | Kanalga qo'shilishda Xatolik {LIGHT_CYAN}{yopiq_link}{RESET} {e}")
+                        print(f"{LIGHT_GREEN}{name}{RESET} | Kanalga qo'shilishda Xatolik {LIGHT_CYAN}{yopiq_link}{RESET}")
                 print(f"{LIGHT_GREEN}{name}{RESET} | Cloudflarega xuyyer qilayabman |")
                 solver = TwoCaptcha(api_key)
                 result = solver.turnstile(sitekey=site_key, url=url)
@@ -240,8 +238,6 @@ if machine_code in hash_values_list:
             except Exception as e:
                 print(f"⚠️ {phone} uchun xatolik: {e}")
                 await tg_client.disconnect()
-
-
     if __name__ == "__main__":
         import asyncio
         asyncio.run(main())
