@@ -42,22 +42,15 @@ if machine_code in hash_values_list:
     from telethon.tl.functions.messages import RequestWebViewRequest
     from telethon.tl.functions.account import UpdateStatusRequest
     import csv
-    #with open(r"/storage/emulated/0/giv/ochiqkanal.csv", 'r') as f:
-    #    premium_channels = [row[0] for row in csv.reader(f)]
-    #with open(r"/storage/emulated/0/giv/yopiqkanal.csv", 'r') as f:
-    #    yopiq_channels = [row[0] for row in csv.reader(f)]
-    #with open(r"/storage/emulated/0/giv/giv.csv", 'r') as f:
-    #    giv_ids_ozim = [row[0] for row in csv.reader(f)]
-    #with open(r"/storage/emulated/0/giv/captcha2.csv", 'r') as f: 
-    #    reader = csv.reader(f)
-    #    captchapai = next(reader)[0]
-    with open(r"C:\join\ochiqkanal.csv", 'r') as f:
+    with open(r"/storage/emulated/0/giv/ochiqkanal.csv", 'r') as f:
         premium_channels = [row[0] for row in csv.reader(f)]
-    with open(r"C:\join\yopiqkanal.csv", 'r') as f:
-        yopiq_channels = [row[0] for row in csv.reader(f)] 
-    with open(r"C:\join\givid.csv", 'r') as f:
-        giv_ids_ozim = [row[0] for row in csv.reader(f)] 
-    captchapai = "1b8324721dc1628de785d91cb5f6a6da"
+    with open(r"/storage/emulated/0/giv/yopiqkanal.csv", 'r') as f:
+        yopiq_channels = [row[0] for row in csv.reader(f)]
+    with open(r"/storage/emulated/0/giv/giv.csv", 'r') as f:
+        giv_ids_ozim = [row[0] for row in csv.reader(f)]
+    with open(r"/storage/emulated/0/giv/captcha2.csv", 'r') as f: 
+        reader = csv.reader(f)
+        captchapai = next(reader)[0]
     
     from twocaptcha import TwoCaptcha
 
