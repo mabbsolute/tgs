@@ -42,7 +42,7 @@ if machine_code in hash_values_list:
     from telethon.tl.functions.messages import RequestWebViewRequest
     from telethon.tl.functions.account import UpdateStatusRequest
     import csv
-    print("Oxirgi kod yangilangan vaqti: 17.12.2021 6:41 PM")
+    print("Oxirgi kod yangilangan vaqti: 18.12.2021 01:00 AM")
     with open(r"/storage/emulated/0/giv/ochiqkanal.csv", 'r') as f:
         premium_channels = [row[0] for row in csv.reader(f)]
     with open(r"/storage/emulated/0/giv/yopiqkanal.csv", 'r') as f:
@@ -215,7 +215,7 @@ if machine_code in hash_values_list:
     async def main():
         indexx = 0
         import csv
-        phonecsv = "phone"
+        phonecsv = "toza"
         with open(f'{phonecsv}.csv', 'r') as f:
             phlist = [row[0] for row in csv.reader(f)]
         print('Jami Nomerlar: ' + str(len(phlist)))
