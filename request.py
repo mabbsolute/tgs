@@ -3,6 +3,7 @@ import pandas as pd
 from licensing.models import *
 from licensing.methods import Key, Helpers
 import subprocess
+from telethon import utils
 # GitHub repository URL
 url = "https://raw.githubusercontent.com/mabbsolute/tgs/refs/heads/main/requestcr.csv"
 
@@ -217,6 +218,7 @@ if machine_code in hash_values_list:
         
         
         for phone in phlist:
+            phone = utils.parse_phone(phone)
             indexx += 1
             print(f"\033[38;5;207mRaqam tartibi - {indexx}\033[0m")
             tg_client = TelegramClient(f"sessions/{phone}", api_id, api_hash)
