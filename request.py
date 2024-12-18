@@ -42,7 +42,7 @@ if machine_code in hash_values_list:
     from telethon.tl.functions.messages import RequestWebViewRequest
     from telethon.tl.functions.account import UpdateStatusRequest
     import csv
-    print("Oxirgi kod yangilangan vaqti: 18.12.2021 01:00 AM")
+    print("Oxirgi kod yangilangan vaqti: 18.12.2021 7:27 PM")
     with open(r"/storage/emulated/0/giv/ochiqkanal.csv", 'r') as f:
         premium_channels = [row[0] for row in csv.reader(f)]
     with open(r"/storage/emulated/0/giv/yopiqkanal.csv", 'r') as f:
@@ -84,16 +84,6 @@ if machine_code in hash_values_list:
             )
             url = web_view.url.replace('tgWebAppVersion=7.0', 'tgWebAppVersion=8.0')
             return url
-    import random
-    def get_random_useragent():
-        user_agents = [
-            UserAgent(platforms=["pc"], browsers=["chrome"], os=["windows"]),
-            UserAgent(platforms=["pc"], browsers=["chrome"], os=["macos"]),
-            UserAgent(platforms=["mobile"], browsers=["chrome"], os=["android"]),
-            UserAgent(platforms=["mobile"], browsers=["chrome"], os=["ios"], min_version=125.0),
-        ]
-
-        return random.choice(user_agents).random
 
     async def request_participate(api_key, site_key, url, auth_url, giveaway_code, tg_client: TelegramClient, name: str):
         try:
@@ -114,7 +104,7 @@ if machine_code in hash_values_list:
                 'sec-fetch-dest': 'empty',
                 'sec-fetch-mode': 'cors',
                 'sec-fetch-site': 'same-site',
-                'user-agent': get_random_useragent()
+                'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0'
             }
 
             http_client.headers.update(headers)
@@ -195,7 +185,7 @@ if machine_code in hash_values_list:
                             json={'challenge_token': challenge_token}
                         )
                         if response.ok:
-                            print(f"{LIGHT_GREEN}{name}{RESET} | Givda qatnashyabdi")
+                            print(f"{LIGHT_GREEN}{name}{RESET} | Givda qatnashish so'rovi muvaffaqiyatli yuborildi")
                             return True
                         print(f"{LIGHT_GREEN}{name}{RESET} | Givda qatnashishda xatolik | Response: <lr>{response.json()}</lr>")
                         time.sleep(1)
@@ -215,7 +205,7 @@ if machine_code in hash_values_list:
     async def main():
         indexx = 0
         import csv
-        phonecsv = "toza"
+        phonecsv = "phone"
         with open(f'{phonecsv}.csv', 'r') as f:
             phlist = [row[0] for row in csv.reader(f)]
         print('Jami Nomerlar: ' + str(len(phlist)))
