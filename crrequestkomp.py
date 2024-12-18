@@ -58,7 +58,6 @@ if machine_code in hash_values_list:
         yopiq_channels = [row[0] for row in csv.reader(f)] 
     with open(r"C:\join\givid.csv", 'r') as f:
         giv_ids_ozim = [row[0] for row in csv.reader(f)] 
-    captchapai = "1b8324721dc1628de785d91cb5f6a6da"
     
     from twocaptcha import TwoCaptcha
 
