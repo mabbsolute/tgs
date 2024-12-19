@@ -3,7 +3,6 @@ import pandas as pd
 from licensing.models import *
 from licensing.methods import Key, Helpers
 import subprocess
-from telethon import utils
 # GitHub repository URL
 url = "https://raw.githubusercontent.com/mabbsolute/tgs/refs/heads/main/requestcr.csv"
 
@@ -33,7 +32,6 @@ print(f"DEVICE ID: {machine_code}")
 # Mashina kodini tekshirish
 if machine_code in hash_values_list: 
     from telethon.tl.functions.messages import ImportChatInviteRequest
-    import time
     import requests
     from urllib.parse import unquote
     from fake_useragent import UserAgent
@@ -43,29 +41,27 @@ if machine_code in hash_values_list:
     from telethon.tl.functions.messages import RequestWebViewRequest
     from telethon.tl.functions.account import UpdateStatusRequest
     import csv
-    print("Oxirgi kod yangilangan vaqti: 18.12.2021 7:55 PM")
-    with open(r"/storage/emulated/0/giv/ochiqkanal.csv", 'r') as f:
-        premium_channels = [row[0] for row in csv.reader(f)]
-    with open(r"/storage/emulated/0/giv/yopiqkanal.csv", 'r') as f:
-        yopiq_channels = [row[0] for row in csv.reader(f)]
+    print("Oxirgi kod yangilangan vaqti: 19.12.2024 7:54 PM")
     with open(r"/storage/emulated/0/giv/giv.csv", 'r') as f:
         giv_ids_ozim = [row[0] for row in csv.reader(f)]
     with open(r"/storage/emulated/0/giv/captcha2.csv", 'r') as f: 
         reader = csv.reader(f)
         captchapai = next(reader)[0]
-    #with open(r"C:\join\ochiqkanal.csv", 'r') as f:
-    #    premium_channels = [row[0] for row in csv.reader(f)]
-    #with open(r"C:\join\yopiqkanal.csv", 'r') as f:
-    #    yopiq_channels = [row[0] for row in csv.reader(f)] 
-    #with open(r"C:\join\givid.csv", 'r') as f:
-    #    giv_ids_ozim = [row[0] for row in csv.reader(f)] 
-    #captchapai = "1b8324721dc1628de785d91cb5f6a6da"
+    # with open(r"C:\join\captcha2.csv", 'r') as f:
+    #     reader = csv.reader(f)
+    #     captchapai = next(reader)[0]
+    # with open(r"C:\join\givid.csv", 'r') as f:
+    #     giv_ids_ozim = [row[0] for row in csv.reader(f)] 
+        
+    givsonlari = len(giv_ids_ozim)
     
     from twocaptcha import TwoCaptcha
 
     RESET = "\033[0m"
     LIGHT_GREEN = "\033[92m" 
+    TOQ_OQ = "\033[38;2;230;230;250m"  # To'q oq rang RGB (230, 230, 250)
     LIGHT_CYAN = "\033[96m"  
+    print(f"{TOQ_OQ}'Qatnashilayotgan Giveawaylar sonlari -- {givsonlari}{RESET}")
 
     def get_init_data(auth_url):
         init_data = unquote(auth_url.split('tgWebAppData=', 1)[1].split('&tgWebAppVersion', 1)[0])
@@ -85,6 +81,24 @@ if machine_code in hash_values_list:
             )
             url = web_view.url.replace('tgWebAppVersion=7.0', 'tgWebAppVersion=8.0')
             return url
+    async def join_channels(tg_client, chats_data):
+        for chat in chats_data:
+            chat_id = chat['link']
+            try:
+                if chat_id.startswith('https://t.me/+'):
+                    chat_username = chat_id.split('+')[-1]
+                    try: 
+                        await tg_client(ImportChatInviteRequest(chat_username))
+                    except Exception as e:
+                        print(f"{LIGHT_CYAN}Qo'shilishda xatolik {chat_username}: {e}")   
+                else:
+                    try: 
+                        await tg_client(JoinChannelRequest(chat_id))
+                    except Exception as e:
+                        print(f"{LIGHT_CYAN}Qo'shilishda xatolik {chat_id}: {e}")  
+                print(f"{LIGHT_CYAN}Kanalalrga muvaffaqiyatli qo'shildi: {chat_id}")
+            except Exception as e:
+                print(f"Failed to join {chat_id}: {e}")
 
     async def request_participate(api_key, site_key, url, auth_url, giveaway_code, tg_client: TelegramClient, name: str):
         try:
@@ -119,26 +133,17 @@ if machine_code in hash_values_list:
             else:
                 print(f"{LIGHT_GREEN}{name}{RESET} | Ro'yxatdan o'tishda xatolik | Response: <lr>{response.text}</lr>")
                 return False
-            
-            
-
             response = http_client.get(f'https://api.send.tg/internal/v1/giveaway/{giveaway_code}')
             if response.ok:
                 await tg_client.start()
                 await tg_client(UpdateStatusRequest(offline=False))
                 response_json = response.json()
-                # Faqat kerakli ma'lumotlarni olish
-                #invite_hash = response_json.get("invite_hash")
-                #invited_users = response_json.get("invited_users")
-                #win_chance = response_json.get("win_chance")
                 summa = response_json.get("amount_usd")
-                #prepared_inline_message_id = response_json.get("prepared_inline_message_id")
                 member_status = response_json.get("member_status")
                 status = response_json.get("status")
                 can_join = response_json.get("can_join")
                 winners_count = response_json.get("winners_count")
                 asset = response_json.get("asset")
-                qatnasgyabdimi = response_json.get("member_status")
                 
                 # Kerakli formatda chiqarish
                 print(f"{LIGHT_CYAN}A'zolik holati: {member_status}{RESET}")
@@ -147,27 +152,14 @@ if machine_code in hash_values_list:
                 print(f"{LIGHT_CYAN}G'oliblar soni: {winners_count}{RESET}")
                 print(f"{LIGHT_CYAN}Mukofot puli: {summa} - {asset}{RESET}")
                 
-            if can_join and qatnasgyabdimi == "not_member":
-                
-                print("Givga qo'shilishni boshladik!!!")
-                for channel_link in premium_channels:
+            if can_join and member_status == "not_member":
+                if response_json.get('chats'):
+                    chats_data = response_json['chats']
+                    await join_channels(tg_client, chats_data)
+                        
                     
-                    try: 
-                        await tg_client(JoinChannelRequest(channel_link))
-                    except:
-                        pass
-                    try:
-                        await tg_client(JoinChannelRequest(channel_link))
-                        print(f"{LIGHT_GREEN}{name}{RESET} | Kanalga qo'shildi {LIGHT_CYAN}{channel_link}{RESET}")
-                    except Exception as e:
-                        print(f"{LIGHT_GREEN}{name}{RESET} | Kanalga qo'shilishda Xatolik {LIGHT_CYAN}{channel_link}{RESET}")
-                for yopiq_link in yopiq_channels:
-                    try: 
-                        await tg_client(ImportChatInviteRequest(yopiq_link))
-                        print(f"{LIGHT_GREEN}{name} | Kanalga qo'shildi {LIGHT_CYAN}{yopiq_link}{RESET}")
-                    except:
-                        print(f"{LIGHT_GREEN}{name}{RESET} | Kanalga qo'shilishda Xatolik {LIGHT_CYAN}{yopiq_link}{RESET}")
-                print(f"{LIGHT_GREEN}{name}{RESET} | Cloudflarega xuyyer qilayabman |")
+                    print("Givga qo'shilishni boshladik!!!")
+                print(f"{LIGHT_GREEN}{name}{RESET} | Cloudflarega sorov yuborayabman")
                 solver = TwoCaptcha(api_key)
                 result = solver.turnstile(sitekey=site_key, url=url)
                 challenge_token = result.get('code')
@@ -187,12 +179,38 @@ if machine_code in hash_values_list:
                         )
                         if response.ok:
                             print(f"{LIGHT_GREEN}{name}{RESET} | Givda qatnashish so'rovi muvaffaqiyatli yuborildi")
+                            await asyncio.sleep(3)
+                            pesponse = http_client.get(f'https://api.send.tg/internal/v1/giveaway/{giveaway_code}',timeout = 5)
+                            if pesponse.ok:
+                                pesponse = pesponse.json()
+                                # Faqat kerakli ma'lumotlarni olish
+                                invite_hash = pesponse.get("invite_hash")
+                                win_chance = pesponse.get("win_chance")
+                                member_status = pesponse.get("member_status")
+                                print(f"{TOQ_OQ}A'zolik holati: {member_status}{RESET}")
+                                print(f"{TOQ_OQ}Givda yutish ehtimolligi: {win_chance}{RESET}")
+                                print(f"{TOQ_OQ}Referal idsi: {invite_hash}{RESET}")
+                                if member_status == "member":
+                                    print(f"{TOQ_OQ}Print giveawayda qatnashayabdi")
                             return True
                         print(f"{LIGHT_GREEN}{name}{RESET} | Givda qatnashishda xatolik | Response: <lr>{response.json()}</lr>")
-                        time.sleep(1)
+                        await asyncio.sleep(1)
                     except Exception as e:
                         print(f"{LIGHT_GREEN}{name}{RESET} | Requestda xatolik: {e}")
-            elif qatnasgyabdimi == "member":
+            elif member_status == "member":
+                response = http_client.get(f'https://api.send.tg/internal/v1/giveaway/{giveaway_code}')
+                if response.ok:
+                    response = response.json()
+                    # Faqat kerakli ma'lumotlarni olish
+                    invite_hash = response.get("invite_hash")
+                    win_chance = response.get("win_chance")
+                    member_status = response.get("member_status")
+                    print(f"{LIGHT_CYAN}A'zolik holati: {member_status}{RESET}")
+                    print(f"{LIGHT_CYAN}Givda yutish ehtimolligi: {win_chance}{RESET}")
+                    print(f"{LIGHT_CYAN}Ushbu Giv uchun referal idsi: {invite_hash}{RESET}")
+                    if member_status == "member":
+                        print(f"{TOQ_OQ}Print giveawayda qatnashayabdi")
+                        
                 print(f"{LIGHT_GREEN}Allqachon bu givda qatnashayabdi -- ")
             elif not can_join:
                 print(f"{LIGHT_GREEN}Ushbu givga qatnasha olmaydi")
@@ -209,7 +227,7 @@ if machine_code in hash_values_list:
         phonecsv = "toza"
         with open(f'{phonecsv}.csv', 'r') as f:
             phlist = [row[0] for row in csv.reader(f)]
-        print('Jami Nomerlar: ' + str(len(phlist)))
+        print(f'{TOQ_OQ}Jami Nomerlar: ' + str(len(phlist)))
         api_id = 22962676
         api_hash = '543e9a4d695fe8c6aa4075c9525f7c57'
         captcha_api_key = captchapai
@@ -218,7 +236,6 @@ if machine_code in hash_values_list:
         
         
         for phone in phlist:
-            phone = utils.parse_phone(phone)
             indexx += 1
             print(f"\033[38;5;207mRaqam tartibi - {indexx}\033[0m")
             tg_client = TelegramClient(f"sessions/{phone}", api_id, api_hash)
@@ -231,7 +248,6 @@ if machine_code in hash_values_list:
                 
                 print(f"✅ {phone} muvaffaqiyatli ulanib ishlayapti.")
                 await tg_client(UpdateStatusRequest(offline=False))
-
                 for giveaway_code in giv_ids_ozim:
                     auth_url = await get_auth_url(tg_client, giveaway_code)
                     await request_participate(
