@@ -47,7 +47,7 @@ if machine_code in hash_values_list:
     from telethon.tl.types import InputBotAppShortName
     import time
     
-    print("OXIRGI KOD YANGILANGAN VAQT: 14.12.2024  08:13 PM")
+    print("OXIRGI KOD YANGILANGAN VAQT: 20.12.2024  02:13 PM")
     phonecsv = "phone"
     with open(f'{phonecsv}.csv', 'r') as f:
         phlist = [row[0] for row in csv.reader(f)]
@@ -57,7 +57,7 @@ if machine_code in hash_values_list:
     indexx = 0
     current_start_param = str(input("Ref id kiriting: ")) 
     stikersorash = int(input("Stiker qo'yilsinmi: Ha = 0 || Yo'q = 1: "))
-    sotash = int(input("14.12.2024 kungi zadaniyalar : HA = 0 || YO'QSA BOSHQA RAQAM:  "))
+    sotash = int(input("20.12.2024 kungi zadaniyalar : HA = 0 || YO'QSA BOSHQA RAQAM:  "))
     for deltaxd in phlist[qowiwjm:qowiwjm2]:
         try:
             indexx += 1
@@ -165,39 +165,21 @@ if machine_code in hash_values_list:
                         import time
                         
                         upfsytotosinfinite = {
-                            "questId": "675adeb56fe975fdde798265"
+                            "questId": "676467f28eb5e1e35f033d63"
                         }
                         response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=upfsytotosinfinite, timeout=20)
                         response_data = response.json()
                         if response_data.get("success") and response_data.get("data"):
-                            print("Reach Infinite th Milistone  zadanyasi bajarildi")
+                            print("Mystery quest 10k  zadanyasi bajarildi")
                         else:
-                            print("Reach Infinite th Milistone  zadanyasi bajarilmadi")
+                            print("Mystery quest 10k  zadanyasi bajarilmadi")
                         time.sleep(3)
                         response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=upfsytotosinfinite, timeout=10)
                         response_data = response.json()
                         if response_data.get("success") and response_data.get("data"):
-                            print("Reach Infinite th Milistone bonus olindi")
+                            print("Mystery quest 10k bonus olindi")
                         else:
-                            print("Reach Infinite th Milistone bonus olinmadi yoki claim hali ochilmagan keyinroq ishlating")
-                        #raketa
-                        
-                        raketa = {
-                            "questId": "675c65a74d9b0f56a8bb99f1"
-                        }
-                        response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=raketa, timeout=20)
-                        response_data = response.json()
-                        if response_data.get("success") and response_data.get("data"):
-                            print("Join Streaks from @tapps  zadanyasi bajarildi")
-                        else:
-                            print("Join Streaks from @tapps zadanyasi bajarilmadi")
-                        time.sleep(3)
-                        response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=raketa, timeout=10)
-                        response_data = response.json()
-                        if response_data.get("success") and response_data.get("data"):
-                            print("Join Streaks from @tapps bonus olindi")
-                        else:
-                            print("Join Streaks from @tapps bonus olinmadi yoki claim hali ochilmagan keyinroq ishlating")
+                            print("Mystery quest 10k bonus olinmadi yoki claim hali ochilmagan keyinroq ishlating")
                     else:
                         import time
                         #Study paws
