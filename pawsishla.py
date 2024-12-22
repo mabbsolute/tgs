@@ -47,7 +47,7 @@ if machine_code in hash_values_list:
     from telethon.tl.types import InputBotAppShortName
     import time
     
-    print("OXIRGI KOD YANGILANGAN VAQT: 20.12.2024  02:13 PM")
+    print("OXIRGI KOD YANGILANGAN VAQT: 22.12.2024  02:13 PM")
     phonecsv = "phone"
     with open(f'{phonecsv}.csv', 'r') as f:
         phlist = [row[0] for row in csv.reader(f)]
@@ -57,7 +57,7 @@ if machine_code in hash_values_list:
     indexx = 0
     current_start_param = str(input("Ref id kiriting: ")) 
     stikersorash = int(input("Stiker qo'yilsinmi: Ha = 0 || Yo'q = 1: "))
-    sotash = int(input("20.12.2024 kungi zadaniyalar : HA = 0 || YO'QSA BOSHQA RAQAM:  "))
+    sotash = int(input("22.12.2024 kungi zadaniyalar : HA = 0 || YO'QSA BOSHQA RAQAM:  "))
     for deltaxd in phlist[qowiwjm:qowiwjm2]:
         try:
             indexx += 1
@@ -165,21 +165,21 @@ if machine_code in hash_values_list:
                         import time
                         
                         upfsytotosinfinite = {
-                            "questId": "676467f28eb5e1e35f033d63"
+                            "questId": "6766eceedf75d42c3fff4cbc"
                         }
                         response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=upfsytotosinfinite, timeout=20)
                         response_data = response.json()
                         if response_data.get("success") and response_data.get("data"):
-                            print("Mystery quest 10k  zadanyasi bajarildi")
+                            print("Mikrafon 5K  zadanyasi bajarildi")
                         else:
-                            print("Mystery quest 10k  zadanyasi bajarilmadi")
+                            print("Mikrafon 5K  zadanyasi bajarilmadi")
                         time.sleep(3)
                         response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=upfsytotosinfinite, timeout=10)
                         response_data = response.json()
                         if response_data.get("success") and response_data.get("data"):
-                            print("Mystery quest 10k bonus olindi")
+                            print("Mikrafon 5K bonus olindi")
                         else:
-                            print("Mystery quest 10k bonus olinmadi yoki claim hali ochilmagan keyinroq ishlating")
+                            print("Mikrafon 5K bonus olinmadi yoki claim hali ochilmagan keyinroq ishlating")
                     else:
                         import time
                         #Study paws
