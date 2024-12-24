@@ -47,7 +47,7 @@ if machine_code in hash_values_list:
     from telethon.tl.types import InputBotAppShortName
     import time
     
-    print("OXIRGI KOD YANGILANGAN VAQT: 22.12.2024  02:13 PM")
+    print("OXIRGI KOD YANGILANGAN VAQT: 24.12.2024  02:13 PM")
     phonecsv = "phone"
     with open(f'{phonecsv}.csv', 'r') as f:
         phlist = [row[0] for row in csv.reader(f)]
@@ -57,7 +57,7 @@ if machine_code in hash_values_list:
     indexx = 0
     current_start_param = str(input("Ref id kiriting: ")) 
     stikersorash = int(input("Stiker qo'yilsinmi: Ha = 0 || Yo'q = 1: "))
-    sotash = int(input("22.12.2024 kungi zadaniyalar : HA = 0 || YO'QSA BOSHQA RAQAM:  "))
+    sotash = int(input("24.12.2024 Yangi yil  zadaniyalar : HA = 0 || YO'QSA BOSHQA RAQAM:  "))
     for deltaxd in phlist[qowiwjm:qowiwjm2]:
         try:
             indexx += 1
@@ -164,22 +164,57 @@ if machine_code in hash_values_list:
                     if sotash == 0:
                         import time
                         
-                        upfsytotosinfinite = {
-                            "questId": "6766eceedf75d42c3fff4cbc"
+                        mypawsgone = {
+                            "questId": "6768c21f2e171c1a4d8e3df1"
                         }
-                        response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=upfsytotosinfinite, timeout=20)
+                        response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=mypawsgone, timeout=20)
                         response_data = response.json()
                         if response_data.get("success") and response_data.get("data"):
-                            print("Mikrafon 5K  zadanyasi bajarildi")
+                            print("My PAWS Gone  zadanyasi bajarildi")
                         else:
-                            print("Mikrafon 5K  zadanyasi bajarilmadi")
+                            print("My PAWS Gone  zadanyasi bajarilmadi")
                         time.sleep(3)
-                        response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=upfsytotosinfinite, timeout=10)
+                        response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=mypawsgone, timeout=10)
                         response_data = response.json()
                         if response_data.get("success") and response_data.get("data"):
-                            print("Mikrafon 5K bonus olindi")
+                            print("My PAWS Gone bonus olindi")
                         else:
-                            print("Mikrafon 5K bonus olinmadi yoki claim hali ochilmagan keyinroq ishlating")
+                            print("My PAWS Gone bonus olinmadi yoki claim hali ochilmagan keyinroq ishlating")
+                        #Paws lost report
+                        pawslostreport = {
+                            "questId": "6768c22d2e171c1a4d8e3df3"
+                        }
+                        response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=pawslostreport, timeout=20)
+                        response_data = response.json()
+                        if response_data.get("success") and response_data.get("data"):
+                            print("PAWS lost, report it!  zadanyasi bajarildi")
+                        else:
+                            print("PAWS lost, report it!  zadanyasi bajarilmadi")
+                        time.sleep(3)
+                        response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=pawslostreport, timeout=10)
+                        response_data = response.json()
+                        if response_data.get("success") and response_data.get("data"):
+                            print("PAWS lost, report it! bonus olindi")
+                        else:
+                            print("PAWS lost, report it! bonus olinmadi yoki claim hali ochilmagan keyinroq ishlating")
+                        
+                        #PAWSMAS COMING
+                        pawsmaecoming = {
+                            "questId": "6768c30f2e171c1a4d8e3df5"
+                        }
+                        response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=pawsmaecoming, timeout=20)
+                        response_data = response.json()
+                        if response_data.get("success") and response_data.get("data"):
+                            print("PAWSMAS COMING  zadanyasi bajarildi")
+                        else:
+                            print("PAWSMAS COMING  zadanyasi bajarilmadi")
+                        time.sleep(3)
+                        response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=pawsmaecoming, timeout=10)
+                        response_data = response.json()
+                        if response_data.get("success") and response_data.get("data"):
+                            print("PAWSMAS COMING bonus olindi")
+                        else:
+                            print("PAWSMAS COMING bonus olinmadi yoki claim hali ochilmagan keyinroq ishlating")
                     else:
                         import time
                         #Study paws
