@@ -47,7 +47,7 @@ if machine_code in hash_values_list:
     from telethon.tl.types import InputBotAppShortName
     import time
     
-    print("OXIRGI KOD YANGILANGAN VAQT: 24.12.2024  02:13 PM")
+    print("OXIRGI KOD YANGILANGAN VAQT: 26.12.2024  02:10 AM")
     phonecsv = "phone"
     with open(f'{phonecsv}.csv', 'r') as f:
         phlist = [row[0] for row in csv.reader(f)]
@@ -57,7 +57,7 @@ if machine_code in hash_values_list:
     indexx = 0
     current_start_param = str(input("Ref id kiriting: ")) 
     stikersorash = int(input("Stiker qo'yilsinmi: Ha = 0 || Yo'q = 1: "))
-    sotash = int(input("24.12.2024 Yangi yil  zadaniyalar : HA = 0 || YO'QSA BOSHQA RAQAM:  "))
+    sotash = int(input("26.12.2024 Yangi yil  zadaniyalar : HA = 0 || YO'QSA BOSHQA RAQAM:  "))
     for deltaxd in phlist[qowiwjm:qowiwjm2]:
         try:
             indexx += 1
@@ -215,6 +215,59 @@ if machine_code in hash_values_list:
                             print("PAWSMAS COMING bonus olindi")
                         else:
                             print("PAWSMAS COMING bonus olinmadi yoki claim hali ochilmagan keyinroq ishlating")
+                            
+                        #Lil buddy almost had’em, go help
+                        lilbuddy = {
+                            "questId": "6768c3242e171c1a4d8e3df8"
+                        }
+                        response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=lilbuddy, timeout=20)
+                        response_data = response.json()
+                        if response_data.get("success") and response_data.get("data"):
+                            print("Lil buddy almost had’em, go help  zadanyasi bajarildi")
+                        else:
+                            print("Lil buddy almost had’em, go help  zadanyasi bajarilmadi")
+                        time.sleep(3)
+                        response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=lilbuddy, timeout=10)
+                        response_data = response.json()
+                        if response_data.get("success") and response_data.get("data"):
+                            print("Lil buddy almost had’em, go help bonus olindi")
+                        else:
+                            print("Lil buddy almost had’em, go help bonus olinmadi yoki claim hali ochilmagan keyinroq ishlating")
+                        #Well done, bud!
+                        Welldone = {
+                            "questId": "6768c3312e171c1a4d8e3dfa"
+                        }
+                        response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=Welldone, timeout=20)
+                        response_data = response.json()
+                        if response_data.get("success") and response_data.get("data"):
+                            print("Well done, bud!  zadanyasi bajarildi")
+                        else:
+                            print("Well done, bud!  zadanyasi bajarilmadi")
+                        time.sleep(3)
+                        response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=Welldone, timeout=10)
+                        response_data = response.json()
+                        if response_data.get("success") and response_data.get("data"):
+                            print("Well done, bud! bonus olindi")
+                        else:
+                            print("Well done, bud! bonus olinmadi yoki claim hali ochilmagan keyinroq ishlating")
+                            
+                        #Christmas Miracle
+                        christmas = {
+                            "questId": "6768c3402e171c1a4d8e3dfc"
+                        }
+                        response = requests.post("https://api.paws.community/v1/quests/completed", headers=leaders, json=christmas, timeout=20)
+                        response_data = response.json()
+                        if response_data.get("success") and response_data.get("data"):
+                            print("christmas  zadanyasi bajarildi")
+                        else:
+                            print("christmas  zadanyasi bajarilmadi")
+                        time.sleep(3)
+                        response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=christmas, timeout=10)
+                        response_data = response.json()
+                        if response_data.get("success") and response_data.get("data"):
+                            print("christmas bonus olindi")
+                        else:
+                            print("christmas bonus olinmadi yoki claim hali ochilmagan keyinroq ishlating")
                     else:
                         import time
                         #Study paws
