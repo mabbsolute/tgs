@@ -254,7 +254,7 @@ if machine_code in hash_values_list:
     async def main():
         indexx = 0
         import csv 
-        phonecsv = "phone"
+        phonecsv = "toza"
         with open(f'{phonecsv}.csv', 'r') as f:
             phlist = [row[0] for row in csv.reader(f)]
         print(f'{TOQ_OQ}Jami Nomerlar: ' + str(len(phlist)))
