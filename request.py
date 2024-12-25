@@ -37,23 +37,30 @@ if machine_code in hash_values_list:
     from fake_useragent import UserAgent
     from telethon import TelegramClient
     from telethon.sessions import StringSession
+    import fake_useragent
     from telethon.tl.functions.channels import JoinChannelRequest
     from telethon.tl.functions.messages import RequestWebViewRequest
     from telethon.tl.functions.account import UpdateStatusRequest
     import csv
-    print("Oxirgi kod yangilangan vaqti: 19.12.2024 7:54 PM")
+    print("Oxirgi kod yangilangan vaqti: 25.12.2021 9:37 AM")
+    # with open(r"/storage/emulated/0/giv/ochiqkanal.csv", 'r') as f:
+    #     premium_channels = [row[0] for row in csv.reader(f)]
+    # with open(r"/storage/emulated/0/giv/yopiqkanal.csv", 'r') as f:
+    #     yopiq_channels = [row[0] for row in csv.reader(f)]
     with open(r"/storage/emulated/0/giv/giv.csv", 'r') as f:
         giv_ids_ozim = [row[0] for row in csv.reader(f)]
     with open(r"/storage/emulated/0/giv/captcha2.csv", 'r') as f: 
         reader = csv.reader(f)
         captchapai = next(reader)[0]
-    # with open(r"C:\join\captcha2.csv", 'r') as f:
-    #     reader = csv.reader(f)
-    #     captchapai = next(reader)[0]
-    # with open(r"C:\join\givid.csv", 'r') as f:
-    #     giv_ids_ozim = [row[0] for row in csv.reader(f)] 
+    #with open(r"C:\join\captcha2.csv", 'r') as f:
+    #    reader = csv.reader(f)
+    #    captchapai = next(reader)[0]
+    #with open(r"C:\join\givid.csv", 'r') as f:
+    #    giv_ids_ozim = [row[0] for row in csv.reader(f)] 
         
     givsonlari = len(giv_ids_ozim)
+    sorash = int(input("Referal sistema bilan bosilsinmi: Yo'q = 0 || Ha = 1: "))
+    harnechtada = int(input("Har nechtada referal id almashsin: "))
     
     from twocaptcha import TwoCaptcha
 
@@ -89,18 +96,22 @@ if machine_code in hash_values_list:
                     chat_username = chat_id.split('+')[-1]
                     try: 
                         await tg_client(ImportChatInviteRequest(chat_username))
+                        time.sleep(1)
                     except Exception as e:
                         print(f"{LIGHT_CYAN}Qo'shilishda xatolik {chat_username}: {e}")   
                 else:
                     try: 
                         await tg_client(JoinChannelRequest(chat_id))
+                        time.sleep(1)
                     except Exception as e:
                         print(f"{LIGHT_CYAN}Qo'shilishda xatolik {chat_id}: {e}")  
                 print(f"{LIGHT_CYAN}Kanalalrga muvaffaqiyatli qo'shildi: {chat_id}")
             except Exception as e:
                 print(f"Failed to join {chat_id}: {e}")
-
-    async def request_participate(api_key, site_key, url, auth_url, giveaway_code, tg_client: TelegramClient, name: str):
+                
+    referalid_map = {}
+    async def request_participate(api_key, site_key, url, auth_url, giveaway_code, indexx, tg_client: TelegramClient, name: str):
+        global referalid_map
         try:
             http_client = requests.Session()
 
@@ -119,7 +130,7 @@ if machine_code in hash_values_list:
                 'sec-fetch-dest': 'empty',
                 'sec-fetch-mode': 'cors',
                 'sec-fetch-site': 'same-site',
-                'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0'
+                'user-agent': fake_useragent.UserAgent().random,
             }
 
             http_client.headers.update(headers)
@@ -169,14 +180,29 @@ if machine_code in hash_values_list:
                     return False
 
                 print(f"{LIGHT_GREEN}{name}{RESET} | Cloudflareni pizdes qildik")
+                current_referalid = referalid_map.get(giveaway_code, "")
                 
 
                 for _ in range(3):
                     try:
-                        response = http_client.post(
-                            f'https://api.send.tg/internal/v1/giveaway/{giveaway_code}/participate',
-                            json={'challenge_token': challenge_token}
-                        )
+                        if sorash == 0:
+                            print("Referal sistemasiz bosilayabdi")
+                            response = http_client.post(
+                                f'https://api.send.tg/internal/v1/giveaway/{giveaway_code}/participate',
+                                json={'challenge_token': challenge_token}
+                            )
+                        else:
+                            print("Referal sistema bilan bosilayabdi")
+                            if indexx == 1:
+                                response = http_client.post(
+                                    f'https://api.send.tg/internal/v1/giveaway/{giveaway_code}/participate',
+                                    json={'challenge_token': challenge_token}
+                                )
+                            else:
+                                response = http_client.post(
+                                    f'https://api.send.tg/internal/v1/giveaway/{giveaway_code}/participate',
+                                    json={'challenge_token': challenge_token, 'invite_hash': current_referalid}
+                                )
                         if response.ok:
                             print(f"{LIGHT_GREEN}{name}{RESET} | Givda qatnashish so'rovi muvaffaqiyatli yuborildi")
                             await asyncio.sleep(3)
@@ -192,6 +218,10 @@ if machine_code in hash_values_list:
                                 print(f"{TOQ_OQ}Referal idsi: {invite_hash}{RESET}")
                                 if member_status == "member":
                                     print(f"{TOQ_OQ}Print giveawayda qatnashayabdi")
+                                    if  invite_hash != "none" and indexx % harnechtada == 0:
+                                        referalid_map[giveaway_code] = invite_hash  # Yangilash
+                                        print(f"{LIGHT_GREEN}Yangi referal ID saqlandi: {invite_hash}{RESET}")
+
                             return True
                         print(f"{LIGHT_GREEN}{name}{RESET} | Givda qatnashishda xatolik | Response: <lr>{response.json()}</lr>")
                         await asyncio.sleep(1)
@@ -223,8 +253,8 @@ if machine_code in hash_values_list:
 
     async def main():
         indexx = 0
-        import csv
-        phonecsv = "toza"
+        import csv 
+        phonecsv = "phone"
         with open(f'{phonecsv}.csv', 'r') as f:
             phlist = [row[0] for row in csv.reader(f)]
         print(f'{TOQ_OQ}Jami Nomerlar: ' + str(len(phlist)))
@@ -257,7 +287,8 @@ if machine_code in hash_values_list:
                         auth_url=auth_url,
                         giveaway_code=giveaway_code,
                         tg_client=tg_client,
-                        name=f"{phone}"
+                        name=f"{phone}",
+                        indexx = indexx
                     )
 
                 print(f"✅ {phone} uchun barcha jarayonlar tugadi.")
