@@ -118,6 +118,8 @@ if machine_code in hash_values_list:
                     "referralCode": current_start_param
                 }
 
+                time.sleep(8)
+
                 response = requests.post("https://api.paws.community/v1/user/auth", headers=headers, json=payload, timeout=10)
                 response_data = response.json()
                 if response_data.get("success"):
@@ -173,7 +175,7 @@ if machine_code in hash_values_list:
                             print("My PAWS Gone  zadanyasi bajarildi")
                         else:
                             print("My PAWS Gone  zadanyasi bajarilmadi")
-                        time.sleep(3)
+                        time.sleep(7)
                         response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=mypawsgone, timeout=10)
                         response_data = response.json()
                         if response_data.get("success") and response_data.get("data"):
@@ -190,7 +192,7 @@ if machine_code in hash_values_list:
                             print("PAWS lost, report it!  zadanyasi bajarildi")
                         else:
                             print("PAWS lost, report it!  zadanyasi bajarilmadi")
-                        time.sleep(3)
+                        time.sleep(7)
                         response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=pawslostreport, timeout=10)
                         response_data = response.json()
                         if response_data.get("success") and response_data.get("data"):
@@ -208,7 +210,7 @@ if machine_code in hash_values_list:
                             print("PAWSMAS COMING  zadanyasi bajarildi")
                         else:
                             print("PAWSMAS COMING  zadanyasi bajarilmadi")
-                        time.sleep(3)
+                        time.sleep(7)
                         response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=pawsmaecoming, timeout=10)
                         response_data = response.json()
                         if response_data.get("success") and response_data.get("data"):
@@ -226,7 +228,7 @@ if machine_code in hash_values_list:
                             print("Lil buddy almost had’em, go help  zadanyasi bajarildi")
                         else:
                             print("Lil buddy almost had’em, go help  zadanyasi bajarilmadi")
-                        time.sleep(3)
+                        time.sleep(7)
                         response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=lilbuddy, timeout=10)
                         response_data = response.json()
                         if response_data.get("success") and response_data.get("data"):
@@ -243,7 +245,7 @@ if machine_code in hash_values_list:
                             print("Well done, bud!  zadanyasi bajarildi")
                         else:
                             print("Well done, bud!  zadanyasi bajarilmadi")
-                        time.sleep(3)
+                        time.sleep(7)
                         response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=Welldone, timeout=10)
                         response_data = response.json()
                         if response_data.get("success") and response_data.get("data"):
@@ -261,7 +263,7 @@ if machine_code in hash_values_list:
                             print("christmas  zadanyasi bajarildi")
                         else:
                             print("christmas  zadanyasi bajarilmadi")
-                        time.sleep(3)
+                        time.sleep(7)
                         response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=christmas, timeout=10)
                         response_data = response.json()
                         if response_data.get("success") and response_data.get("data"):
@@ -282,7 +284,7 @@ if machine_code in hash_values_list:
                         else:
                             print("Study paws zadanya bajarilmadi")
                             
-                        time.sleep(2)
+                        time.sleep(7)
                             
                         response = requests.post("https://api.paws.community/v1/quests/claim", headers=leaders, json=rlayload, timeout=10)
                         response_data = response.json()
@@ -290,7 +292,7 @@ if machine_code in hash_values_list:
                             print("Study paws zadanyasi bonusi olindi")
                         else:
                             print("Study paws zadanyasi bonus olinmadi yoki oldin olingan")
-                        time.sleep(3)
+                        time.sleep(7)
                         
                         #Join paws cults on x
                                             
