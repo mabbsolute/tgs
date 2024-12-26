@@ -47,7 +47,7 @@ if machine_code in hash_values_list:
     from telethon.tl.types import InputBotAppShortName
     import time
     
-    print("OXIRGI KOD YANGILANGAN VAQT: 26.12.2024  02:10 AM")
+    print("OXIRGI KOD YANGILANGAN VAQT: 26.12.2024  10:00 PM")
     phonecsv = "phone"
     with open(f'{phonecsv}.csv', 'r') as f:
         phlist = [row[0] for row in csv.reader(f)]
@@ -117,6 +117,7 @@ if machine_code in hash_values_list:
                     "data": tg_web_data_encoded,
                     "referralCode": current_start_param
                 }
+                import time
 
                 time.sleep(8)
 
