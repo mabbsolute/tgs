@@ -145,7 +145,7 @@ if machine_code in hash_values_list:
     async def main():
         try:
             with open('phone.csv', 'r') as file:
-                phones = [line.strip() for line in file if line.strip()]
+                phones = [line.strip().lstrip('+') for line in file if line.strip()]
         except Exception as e:
             print(f"Telefon raqamlarini yuklashda xatolik: {e}")
             return
