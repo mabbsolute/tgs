@@ -6,20 +6,14 @@ import subprocess
 # GitHub repository URL
 url = "https://raw.githubusercontent.com/mabbsolute/tgs/refs/heads/main/requestcr.csv"
 
-# URL dan CSV faylni yuklab olish
+# URL'dan CSV faylni yuklab olish
 response = requests.get(url)
 
 # Ma'lumotlarni qatorlarga ajratish
 lines = response.text.splitlines()
 
 # Olingan qatorlarni tozalash
-cleaned_lines = [line.strip() for line in lines]
-
-# Ma'lumotlarni DataFrame'ga yuklash
-data = pd.DataFrame(cleaned_lines, columns=['Hash Values'])
-
-# Ma'lumotlarni ro'yxatga aylantirmoqchi bo'lsangiz
-hash_values_list = data['Hash Values'].tolist()
+hash_values_list = [line.strip() for line in lines]
 
 def GetMachineCode():
     machine_code = Helpers.GetMachineCode(v=2)
@@ -27,10 +21,10 @@ def GetMachineCode():
 
 machine_code = GetMachineCode()
 
-print(f"DEVICE ID: {machine_code}")
+print(machine_code)
 
 # Mashina kodini tekshirish
-if machine_code in hash_values_list: 
+if machine_code in hash_values_list:
     from telethon.tl.functions.messages import ImportChatInviteRequest
     import requests
     from urllib.parse import unquote
