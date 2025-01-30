@@ -1,5 +1,4 @@
 import requests
-import pandas as pd
 from licensing.models import *
 from licensing.methods import Key, Helpers
 import subprocess
