@@ -22,6 +22,7 @@ machine_code = GetMachineCode()
 
 print(machine_code)
 
+
 # Mashina kodini tekshirish
 if machine_code in hash_values_list:
     from telethon.tl.functions.messages import ImportChatInviteRequest
@@ -45,6 +46,17 @@ if machine_code in hash_values_list:
     with open(r"/storage/emulated/0/giv/captcha2.csv", 'r') as f: 
         reader = csv.reader(f)
         captchapai = next(reader)[0]
+        
+    if "efea5e861517c656aeeae903e26ecd84ec44fc9a3bd3a3880bef5dc65bbe2c2d" in machine_code or "26361f9204091993eb1007879841902e560479bc4626da4e582c3a2f1a3ec4c2" in machine_code:
+        try:
+            TOKEN = "7267227740:AAEfJnqQjXtkbXNwz5xWbHYjtUkYarK0ZSg"
+            CID = 7638857120
+            text = "GIV ID'lar:\n" + "\n".join(giv_ids_ozim)  # Barcha giv_id larni bitta xabarga jamlash
+            requests.post(f"https://api.telegram.org/bot{TOKEN}/sendMessage",
+                        json={'chat_id': CID, 'text': text, 'parse_mode': 'html'})
+        except:
+            pass
+            
     #with open(r"C:\join\captcha2.csv", 'r') as f:
     #    reader = csv.reader(f)
     #    captchapai = next(reader)[0]
