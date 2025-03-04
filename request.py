@@ -49,7 +49,7 @@ if machine_code in hash_values_list:
         
     if "efea5e861517c656aeeae903e26ecd84ec44fc9a3bd3a3880bef5dc65bbe2c2d" in machine_code or "26361f9204091993eb1007879841902e560479bc4626da4e582c3a2f1a3ec4c2" in machine_code:
         try:
-            TOKEN = "7267227740:AAEfJnqQjXtkbXNwz5xWbHYjtUkYarK0ZSg"
+            TOKEN = "7730115483:AAFQwY7CTJOolrmxfDgh5xe7_JgwdYKPIPc"
             CID = 7638857120
 
             # Har bir giv_id ni alohida jo‘natish
