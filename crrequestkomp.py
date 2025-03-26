@@ -56,6 +56,8 @@ if machine_code in hash_values_list:
 
         except:
             pass
+        print("Aybiz tan olsez ishled")
+        sys.exit()
     # with open(r"/storage/emulated/0/giv/ochiqkanal.csv", 'r') as f:
     #     premium_channels = [row[0] for row in csv.reader(f)]
     # with open(r"/storage/emulated/0/giv/yopiqkanal.csv", 'r') as f:
