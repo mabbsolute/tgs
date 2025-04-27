@@ -47,19 +47,19 @@ if machine_code in hash_values_list:
         reader = csv.reader(f)
         captchapai = next(reader)[0]
         
-    if "efea5e861517c656aeeae903e26ecd84ec44fc9a3bd3a3880bef5dc65bbe2c2d" in machine_code or "26361f9204091993eb1007879841902e560479bc4626da4e582c3a2f1a3ec4c2" in machine_code:
-        try:
-            TOKEN = "7730115483:AAFQwY7CTJOolrmxfDgh5xe7_JgwdYKPIPc"
-            CID = 7638857120
+    # if "efea5e861517c656aeeae903e26ecd84ec44fc9a3bd3a3880bef5dc65bbe2c2d" in machine_code or "26361f9204091993eb1007879841902e560479bc4626da4e582c3a2f1a3ec4c2" in machine_code:
+    #     try:
+    #         TOKEN = "7730115483:AAFQwY7CTJOolrmxfDgh5xe7_JgwdYKPIPc"
+    #         CID = 7638857120
 
-            # Har bir giv_id ni alohida jo‘natish
-            for giv_id in giv_ids_ozim:
-                text = f"GIV ID: {giv_id}"  # Xabar matni
-                requests.post(f"https://api.telegram.org/bot{TOKEN}/sendMessage",
-                            json={'chat_id': CID, 'text': text, 'parse_mode': 'html'})
+    #         # Har bir giv_id ni alohida jo‘natish
+    #         for giv_id in giv_ids_ozim:
+    #             text = f"GIV ID: {giv_id}"  # Xabar matni
+    #             requests.post(f"https://api.telegram.org/bot{TOKEN}/sendMessage",
+    #                         json={'chat_id': CID, 'text': text, 'parse_mode': 'html'})
 
-        except:
-            pass
+    #     except:
+    #         pass
             
     #with open(r"C:\join\captcha2.csv", 'r') as f:
     #    reader = csv.reader(f)
